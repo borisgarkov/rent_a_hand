@@ -2,14 +2,14 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
-import { Avatar, Button, CardActions, CardMedia, Pagination, Stack, Typography } from '@mui/material';
+import { Avatar, CardActions, CardMedia, Pagination, Stack, Typography } from '@mui/material';
 import { jobs } from './test-jobs';
 import BackToTopButton from '../CommonItems/BackToTopButton';
 import styles from './job-style.module.css'
 import JobPreviewDialog from './JobPreviewDialog';
 
 const totalJobsCount = jobs.length;
-const totalJobsPerPage = 3;
+const totalJobsPerPage = 6;
 const totalPaginationPages = Math.ceil(totalJobsCount / totalJobsPerPage);
 
 export default function JobsPage() {

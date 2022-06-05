@@ -62,7 +62,7 @@ export default function JobPreviewDialog({ job }) {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Прегледай обява</Button>
+                    <Button>Прегледай обява</Button>
                 </DialogActions>
             </Dialog>
         </div >

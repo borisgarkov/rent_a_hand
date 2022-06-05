@@ -1,5 +1,5 @@
-import { AppBar, Toolbar, Button, Menu, MenuItem, useScrollTrigger, ButtonGroup } from "@mui/material";
-import { Box, display } from "@mui/system";
+import { AppBar, Toolbar, Button, Menu, MenuItem, ButtonGroup } from "@mui/material";
+import { Box } from "@mui/system";
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 
@@ -186,7 +186,7 @@ export default function Navigation() {
 
                 </Toolbar>
             </AppBar>
-            <Toolbar id='navbar' variant='dense' sx={{
+            <Toolbar id='navbar' sx={{
                 backgroundColor: '#ffffff'
             }} />
         </>
