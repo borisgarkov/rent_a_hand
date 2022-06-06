@@ -9,6 +9,7 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import ApartmentOutlinedIcon from '@mui/icons-material/ApartmentOutlined';
 import { useState } from "react";
 import BackToTopButton from "../CommonItems/BackToTopButton";
+import FAQAccordion from './FAQAccordion';
 
 export default function PricingList() {
 
@@ -96,6 +97,7 @@ export default function PricingList() {
                         companyPackages.map((card) => <PricingCard card={card} key={card.title} />)
                 }
             </Grid>
+            <FAQAccordion />
             <BackToTopButton />
         </Box >
     )

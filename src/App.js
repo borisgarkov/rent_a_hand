@@ -3,6 +3,8 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import Navigation from "./components/NavigationBar/Navigation";
 import JobsPage from './components/JobsPage/JobsPage';
 import JobDescriptionPage from "./components/JobsPage/JobDescriptionPage";
+import PricingList from './components/PricingPlansPage/PricingList';
+import ProfilePage from "./components/ProfilePage/ProfilePage";
 
 
 const theme = createTheme({
@@ -22,8 +24,10 @@ function App() {
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <Navigation />
-            <JobDescriptionPage />
+            <ProfilePage />
+            {/* <JobDescriptionPage /> */}
             {/* <JobsPage /> */}
+            {/* <PricingList /> */}
 
         </ThemeProvider>
     );

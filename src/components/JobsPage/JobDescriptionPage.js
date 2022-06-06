@@ -1,11 +1,12 @@
-import { Avatar, Button, Card, CardContent, CardHeader, CardMedia, Divider, Stack, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Avatar, Button, Card, CardContent, CardHeader, CardMedia, Divider, Stack, Typography, Box } from "@mui/material";
 import { jobs } from './test-jobs'
 
 import WorkIcon from '@mui/icons-material/Work';
 import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import BackToTopButton from "../CommonItems/BackToTopButton";
+
+import { Fragment } from "react";
 
 const job = jobs[3];
 
@@ -45,13 +46,16 @@ export default function JobDescriptionPage(params) {
                 },
                 gap: 1,
                 justifyContent: 'center',
-                marginTop: 7,
+                marginTop: {
+                    xs: 1,
+                    md: 7,
+                },
             }}>
                 <Card sx={{ maxWidth: 433, alignSelf: 'flex-start', flexGrow: 1, position: 'sticky', top: 80 }}>
                     <CardHeader subheader={`Други обяви от ${job.publisher}`} />
                     {
                         jobs.map(job => (
-                            <>
+                            <Fragment key={job.id}>
                                 <CardHeader
                                     title={job.title}
                                     subheader={job.datePosted}
@@ -60,7 +64,7 @@ export default function JobDescriptionPage(params) {
                                     }
                                 />
                                 <Divider />
-                            </>
+                            </Fragment>
                         ))
                     }
                 </Card>
