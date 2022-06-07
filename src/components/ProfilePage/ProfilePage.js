@@ -1,9 +1,10 @@
-import { Avatar, Card, CardContent, CardHeader, Chip, Divider, IconButton, Stack, Typography } from "@mui/material";
+import { Avatar, Card, CardContent, CardHeader, Chip, Divider, IconButton, Stack, Typography, Box } from "@mui/material";
 
 import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined';
 import SquareFootOutlinedIcon from '@mui/icons-material/SquareFootOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
 
 const userInfoIconHeadingCssStyle = {
@@ -11,6 +12,16 @@ const userInfoIconHeadingCssStyle = {
     marginTop: 2,
     marginBottom: 2,
     padding: '0 1rem',
+};
+
+const EditSection = () => {
+    return (
+        <IconButton sx={{
+            marginLeft: 'auto',
+        }}>
+            <EditOutlinedIcon />
+        </IconButton>
+    )
 };
 
 const ProfileHeading = () => {
@@ -49,6 +60,7 @@ const UserJob = () => {
         }}>
             <WorkOutlineOutlinedIcon />
             <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: 1 }}>Механик</Typography>
+            <EditSection />
         </Stack>
     )
 };
@@ -57,14 +69,29 @@ const UserResume = () => {
     return (
         <Stack sx={{
             flexDirection: 'column',
-            alignItems: 'flex-start',
+            // alignItems: 'flex-start',
             ...userInfoIconHeadingCssStyle
         }}>
-            <TextSnippetOutlinedIcon />
-            <Typography variant='body1' sx={{ marginBottom: 1 }}>Резюме: Linux, AWS, Terraform, Kubernetes,
-                Networks, Some FreeBSD skills; Databases: MySQL, Postgresql; Docker;
-                ansible; CI/CD understanding and using the best practices; monitoring tools:
-                Zabbix, Nagios and a lot of other tools
+            <Stack sx={{
+                flexDirection: 'row',
+                alignItems: 'flex-start',
+                gap: 1,
+            }}>
+                <TextSnippetOutlinedIcon />
+                <Typography variant='h6'>Резюме</Typography>
+                <EditSection />
+            </Stack>
+            <Typography variant='body1' sx={{ marginBottom: 1 }}>Hey I'm Preslav,
+                Thanks for visiting my profile.
+                The experience that i have at the moment is at 100% for me and every time i learn something its 100% more.
+                I have good presentation skills in sales and excellent technical skills in process engineering.
+                At the moment i am working as a process enginer in production factory with aluminium profiles.
+                Making analysis for production process and solving problems in production with aluminium is one of
+                my best abilities that i have and i want to help people here. Drawing on inventor 2021 mechanical parts
+                for machines and using CAD ,CAM is also one of my other specialties. Designing new type of machine parts
+                for specific situations in production and helping it get better at quality. Being communicative during work
+                is my top skill that i have acquired during my working career till now. The more we go on the more it continues...
+                For conclusion im a very kind and generous person that if something is interesting for me to do, im getting along with it very fast.
             </Typography>
         </Stack>
     )
@@ -82,6 +109,7 @@ const UserSkills = () => {
             }}>
                 <SquareFootOutlinedIcon />
                 <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: 1, marginTop: 1 }}>Умения</Typography>
+                <EditSection />
             </Stack>
             <Stack sx={{
                 flexDirection: 'row',
@@ -98,9 +126,16 @@ const UserSkills = () => {
 
 const UserSalary = () => {
     return (
-        <Typography>
-            Заплащане на час
-        </Typography>
+        <Stack sx={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            ...userInfoIconHeadingCssStyle
+        }}>
+            <Typography variant='body1'>
+                Заплащане на час
+            </Typography>
+            <EditSection />
+        </Stack>
     )
 }
 
