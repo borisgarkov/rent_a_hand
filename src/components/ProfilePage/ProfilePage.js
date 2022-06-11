@@ -1,10 +1,14 @@
-import { Avatar, Card, CardContent, CardHeader, Chip, Divider, IconButton, Stack, Typography, Box } from "@mui/material";
+import { Avatar, Card, CardContent, CardHeader, Chip, Divider, IconButton, Stack, Typography, Box, Button, Rating } from "@mui/material";
 
 import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined';
 import SquareFootOutlinedIcon from '@mui/icons-material/SquareFootOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import PaymentIcon from '@mui/icons-material/Payment';
+import SchoolIcon from '@mui/icons-material/School';
 
 
 const userInfoIconHeadingCssStyle = {
@@ -24,48 +28,75 @@ const EditSection = () => {
     )
 };
 
+const skillsChipOnHoverCssStyle = {
+    '&:hover': { backgroundColor: '#bdbdbd' },
+};
+
 const ProfileHeading = () => {
     return (
-        <Card sx={{ marginTop: { xs: 1, md: 10 }, marginBottom: 2, marginLeft: 'auto', marginRight: 'auto', maxWidth: 950 }}>
+        <Card sx={{ marginTop: { xs: 1, sm: 10 }, marginBottom: 2, marginLeft: 'auto', marginRight: 'auto', maxWidth: 950 }}>
             <Stack sx={{
-                flexDirection: 'row',
+                flexDirection: {
+                    xs: 'column',
+                    sm: 'row',
+                },
                 gap: 4,
-                alignItems: 'center',
+                alignItems: {
+                    xs: 'center',
+                    sm: 'center',
+                },
                 padding: 1,
                 height: {
-                    xs: 80,
-                    md: 120,
+                    sm: 120,
                 }
             }}>
-                <Avatar sx={{ width: 70, height: 70, marginLeft: 2 }} />
+                <Avatar sx={{ width: 70, height: 70, marginLeft: { sm: 2 } }} />
                 <Stack sx={{
                 }}>
                     <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Иван Иванов</Typography>
-                    <Typography variant="body1">Бургас</Typography>
+                    <Stack sx={{
+                        flexDirection: 'row',
+                        gap: 0.5,
+                    }}>
+                        <LocationOnIcon sx={{ color: 'primary.main' }} size='small' />
+                        <Typography variant="body1">Бургас</Typography>
+                    </Stack>
                 </Stack>
-                <IconButton size='large' sx={{ marginLeft: 'auto', marginRight: 5 }}>
-                    <MessageOutlinedIcon fontSize="medium" />
-                </IconButton>
+                <Stack sx={{
+                    flexDirection: 'column',
+                    flexGrow: 1,
+                    display: { xs: 'none', sm: 'flex' }
+                }}>
+                    <Typography component="legend">Отзиви</Typography>
+                    <Rating name="read-only" defaultValue={3.5} precision={0.5} readOnly sx={{ color: '#f37327' }} />
+                </Stack>
+                <Button
+                    variant='contained'
+                    startIcon={<MessageOutlinedIcon />}
+                    sx={{ marginLeft: { sm: 'auto' }, marginRight: { sm: 5 } }}
+                >
+                    Свържи се
+                </Button>
             </Stack>
         </Card>
     )
 }
 
-const UserJob = () => {
+const UserJobSection = () => {
     return (
         <Stack sx={{
             flexDirection: 'row',
             alignItems: 'flex-start',
-            ...userInfoIconHeadingCssStyle
+            ...userInfoIconHeadingCssStyle,
         }}>
-            <WorkOutlineOutlinedIcon />
+            <WorkOutlineOutlinedIcon sx={{ color: 'primary.main' }} />
             <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: 1 }}>Механик</Typography>
             <EditSection />
         </Stack>
     )
 };
 
-const UserResume = () => {
+const UserResumeSection = () => {
     return (
         <Stack sx={{
             flexDirection: 'column',
@@ -77,11 +108,17 @@ const UserResume = () => {
                 alignItems: 'flex-start',
                 gap: 1,
             }}>
-                <TextSnippetOutlinedIcon />
-                <Typography variant='h6'>Резюме</Typography>
+                <TextSnippetOutlinedIcon sx={{ color: 'primary.main' }} />
+                <Typography fontWeight='bold' variant='h6'>Резюме</Typography>
                 <EditSection />
             </Stack>
-            <Typography variant='body1' sx={{ marginBottom: 1 }}>Hey I'm Preslav,
+            <Typography variant='body2' sx={{
+                marginBottom: 1,
+                textAlign: 'justify',
+                paddingLeft: { sm: '32px' },
+                paddingRight: { sm: '10px' },
+            }}>
+                Hey I'm Preslav,
                 Thanks for visiting my profile.
                 The experience that i have at the moment is at 100% for me and every time i learn something its 100% more.
                 I have good presentation skills in sales and excellent technical skills in process engineering.
@@ -93,11 +130,11 @@ const UserResume = () => {
                 is my top skill that i have acquired during my working career till now. The more we go on the more it continues...
                 For conclusion im a very kind and generous person that if something is interesting for me to do, im getting along with it very fast.
             </Typography>
-        </Stack>
+        </Stack >
     )
 };
 
-const UserSkills = () => {
+const UserSkillsSection = () => {
     return (
         <Stack sx={{
             ...userInfoIconHeadingCssStyle
@@ -107,7 +144,7 @@ const UserSkills = () => {
                 alignItems: 'center',
                 gap: 0.5,
             }}>
-                <SquareFootOutlinedIcon />
+                <SquareFootOutlinedIcon sx={{ color: 'primary.main' }} />
                 <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: 1, marginTop: 1 }}>Умения</Typography>
                 <EditSection />
             </Stack>
@@ -116,28 +153,97 @@ const UserSkills = () => {
                 flexWrap: 'wrap',
                 gap: 1,
             }}>
-                <Chip label="Databases" variant="filled" />
-                <Chip label="Nagios" variant="filled" />
-                <Chip label="Zabbix" variant="filled" />
+                <Chip label="Databases" variant="filled" sx={skillsChipOnHoverCssStyle} />
+                <Chip label="Nagios" variant="filled" sx={skillsChipOnHoverCssStyle} />
+                <Chip label="Zabbix" variant="filled" sx={skillsChipOnHoverCssStyle} />
             </Stack>
         </Stack>
     )
 };
 
-const UserSalary = () => {
+const UserSalaryAndEducationSection = () => {
     return (
-        <Stack sx={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            ...userInfoIconHeadingCssStyle
-        }}>
-            <Typography variant='body1'>
-                Заплащане на час
-            </Typography>
-            <EditSection />
-        </Stack>
+        <>
+            <Stack sx={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                ...userInfoIconHeadingCssStyle,
+                gap: 2,
+                marginBottom: 5,
+            }}>
+                <PaymentIcon sx={{ color: '#666666', alignSelf: 'flex-start' }} />
+                <Stack>
+                    <Typography variant='body1' fontWeight='bold'>
+                        Заплащане
+                    </Typography>
+                    <Typography variant='body1' >
+                        10лв / час
+                    </Typography>
+                </Stack>
+                <EditSection />
+            </Stack >
+            <Stack sx={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                ...userInfoIconHeadingCssStyle,
+                gap: 2,
+                marginBottom: 5,
+            }}>
+                <SchoolIcon sx={{ color: '#666666', alignSelf: 'flex-start' }} />
+                <Stack spacing={1}>
+                    <Typography variant='body1' fontWeight='bold'>
+                        Образование
+                    </Typography>
+                    <Typography variant='body2'>
+                        УНСС
+                    </Typography>
+                    <Typography variant='body2'>
+                        Oxford
+                    </Typography>
+                </Stack>
+                <EditSection />
+            </Stack>
+        </>
     )
 }
+
+const SaveUserToFavourite = () => {
+    return (
+        <Card sx={{
+            maxWidth: 950,
+            margin: 'auto',
+            display: 'flex',
+            flexDirection: 'row',
+            marginBottom: 2,
+            backgroundColor: 'primary.main',
+            textAlign: 'center',
+        }}>
+            <CardContent>
+                <Typography sx={{ color: 'white', marginBottom: 1 }} variant='h6'>
+                    Бъдещи проекти с Иван Иванов?
+                </Typography>
+                <Typography sx={{ color: 'white' }} variant='body1'>
+                    Ако мислите, че уменията на Иван Иванов са подходящи за Вашите бъдещи проекти,
+                    можете да го добавите към списъка с подходящи кандидати.
+                </Typography>
+                <Button
+                    sx={{
+                        backgroundColor: 'white',
+                        border: '1px solid white',
+                        borderRadius: 5,
+                        marginTop: 4,
+                        '&:hover': {
+                            backgroundColor: 'white'
+                        }
+                    }}
+                    startIcon={<StarBorderIcon />}
+                >
+                    Запази
+                </Button>
+            </CardContent>
+        </Card>
+    )
+};
 
 
 export default function ProfilePage() {
@@ -148,13 +254,18 @@ export default function ProfilePage() {
                 maxWidth: 950,
                 margin: 'auto',
                 display: 'flex',
-                flexDirection: 'row'
+                flexDirection: {
+                    xs: 'column-reverse',
+                    md: 'row',
+                },
+
+                marginBottom: 2
             }}>
                 <Stack sx={{
                     padding: 1,
                     flexGrow: 1,
                 }}>
-                    <UserSalary />
+                    <UserSalaryAndEducationSection />
                 </Stack>
 
                 <Divider orientation="vertical" flexItem={true} />
@@ -162,13 +273,16 @@ export default function ProfilePage() {
                 <Stack sx={{
                     flexBasis: '70%',
                 }}>
-                    <UserJob />
+                    <UserJobSection />
                     <Divider />
-                    <UserResume />
+                    <UserResumeSection />
                     <Divider />
-                    <UserSkills />
+                    <UserSkillsSection />
                 </Stack>
             </Card>
+
+            <SaveUserToFavourite />
+
         </>
     )
 }
