@@ -5,8 +5,7 @@ import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import { EditSectionButton } from "./EditSectionButton";
 import { userInfoIconHeadingCssStyle } from './commonProfileCssStyles'
 
-
-export default function UserJobSection() {
+export const UserJobSection = () => {
     return (
         <Stack sx={{
             flexDirection: 'row',

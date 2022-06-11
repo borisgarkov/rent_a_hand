@@ -3,7 +3,7 @@ import { Avatar, Button, Card, Rating, Stack, Typography } from "@mui/material";
 import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-export default function ProfileHeading() {
+export const ProfileHeading = () => {
     return (
         <Card sx={{ marginTop: { xs: 1, sm: 10 }, marginBottom: 2, marginLeft: 'auto', marginRight: 'auto', maxWidth: 950 }}>
             <Stack sx={{

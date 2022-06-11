@@ -1,7 +1,7 @@
 import { Card, Divider, Stack } from "@mui/material";
 
-import ProfileHeading from "./ProfilePageComponents/ProfileHeading";
-import UserJobSection from "./ProfilePageComponents/UserJobSection";
+import { ProfileHeading } from "./ProfilePageComponents/ProfileHeading";
+import { UserJobSection } from "./ProfilePageComponents/UserJobSection";
 import { UserResumeSection } from "./ProfilePageComponents/UserResumeSection";
 import { UserSkillsSection } from "./ProfilePageComponents/UserSkillsSection";
 import { UserSalaryAndEducationSection } from "./ProfilePageComponents/UserSalaryAndEducationSection";
@@ -43,7 +43,6 @@ export default function ProfilePage() {
             </Card>
 
             <SaveUserToFavouriteSection />
-
         </>
     )
 }
