@@ -8,6 +8,7 @@ import MainPage from "./components/MainPage/MainPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 
 import { Routes, Route } from 'react-router-dom';
+import LoginPage from "./components/LoginPage/LoginPage";
 
 const theme = createTheme({
     typography: {
@@ -35,6 +36,8 @@ function App() {
                 <Route path='/job-description' element={<JobDescriptionPage />} />
 
                 <Route path='/profile' element={<ProfilePage />} />
+
+                <Route path='/login' element={<LoginPage />} />
             </Routes>
         </ThemeProvider>
     );

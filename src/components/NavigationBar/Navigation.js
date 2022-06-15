@@ -11,12 +11,14 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import logo from '../images/Rent A Hand_D1.png';
 import { useState } from "react";
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import styles from './navbar.module.css';
 
 
 export default function Navigation() {
+
+    const navigate = useNavigate();
 
     const [pageMenuAnchorElement, setPageMenuAnchorElement] = useState(null);
     const [profileMenuAnchorElement, setProfileMenuAnchorElement] = useState(null);
@@ -84,7 +86,7 @@ export default function Navigation() {
         color: '#666666',
     };
 
-    let isUserLoggedIn = true;
+    let isUserLoggedIn = false;
     let hasUserProfilePicture = true;
 
 
@@ -169,17 +171,17 @@ export default function Navigation() {
 
 
                     <Box sx={{
-                        flexGrow: 1,
+                        marginLeft: 'auto'
                     }}>
                         {
                             isUserLoggedIn ?
                                 <Avatar
                                     alt='profile-picture'
-                                    sx={{ marginLeft: 'auto', cursor: 'pointer' }}
+                                    sx={{ cursor: 'pointer' }}
                                     onClick={handleProfileMenuClick}
                                     src={hasUserProfilePicture ? logo : null}
                                 /> :
-                                <Button variant='contained'>Вход</Button>
+                                <Button variant='contained' onClick={() => navigate('/login')}>Вход</Button>
                         }
                     </Box>
 
