@@ -7,6 +7,8 @@ import { UserSkillsSection } from "./ProfilePageComponents/UserSkillsSection";
 import { UserSalaryAndEducationSection } from "./ProfilePageComponents/UserSalaryAndEducationSection";
 import { SaveUserToFavouriteSection } from "./ProfilePageComponents/SaveUserToFavouriteSection";
 
+import BackToTopButton from '../CommonItems/BackToTopButton';
+
 export default function ProfilePage() {
     return (
         <>
@@ -43,6 +45,7 @@ export default function ProfilePage() {
             </Card>
 
             <SaveUserToFavouriteSection />
+            <BackToTopButton />
         </>
     )
 }

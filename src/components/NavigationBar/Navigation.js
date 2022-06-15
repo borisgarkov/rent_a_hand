@@ -11,6 +11,10 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import logo from '../images/Rent A Hand_D1.png';
 import { useState } from "react";
 
+import { Link } from 'react-router-dom';
+
+import styles from './navbar.module.css';
+
 
 export default function Navigation() {
 
@@ -37,23 +41,38 @@ export default function Navigation() {
     const menuPages = [
         {
             title: 'Начало',
-            icon: <HomeIcon fontSize="small" />
+            icon: <HomeIcon fontSize="small" />,
+            path: '/',
         },
         {
             title: 'Обяви',
-            icon: <WorkIcon fontSize="small" />
+            icon: <WorkIcon fontSize="small" />,
+            path: '/jobs',
         },
         {
             title: 'План',
-            icon: <LocalOfferIcon fontSize="small" />
+            icon: <LocalOfferIcon fontSize="small" />,
+            path: '/pricing',
         },
     ];
 
     const profilePages = [
-        'Профил',
-        'Създай обява',
-        'Настройки',
-        'Изход',
+        {
+            title: 'Профил',
+            path: '/profile',
+        },
+        {
+            title: 'Създай обява',
+            path: '/create-job',
+        },
+        {
+            title: 'Настройки',
+            path: '/settings',
+        },
+        {
+            title: 'Изход',
+            path: '/logout',
+        }
     ]
 
     const displaySettingsHideMobileShowLaptop = {
@@ -72,13 +91,7 @@ export default function Navigation() {
     return (
         <>
             <AppBar>
-                <Toolbar
-                    sx={{
-                        backgroundColor: '#ffffff',
-                        zIndex: 2
-                    }}
-                    position="fixed"
-                >
+                <Toolbar sx={{ backgroundColor: 'white', color: 'white' }}>
 
                     <>
                         <IconButton
@@ -111,7 +124,11 @@ export default function Navigation() {
                             open={isPageMenuOpen}
                             onClose={handlePagesMenuClose}
                         >
-                            {menuPages.map((page) => (<MenuItem key={page.title}>{page.title}</MenuItem>))}
+                            {menuPages.map((page) => (
+                                <Link key={page.title} to={page.path}>
+                                    <MenuItem>{page.title}</MenuItem>
+                                </Link>
+                            ))}
                         </Menu>
 
                         <Box sx={{
@@ -119,18 +136,24 @@ export default function Navigation() {
                         }}>
                             <ButtonGroup variant='' aria-label='button group'>
                                 {menuPages.map((page) => (
-                                    <Button
-                                        key={page.title}
-                                        variant='text'
-                                        sx={{
-                                            ...navButtonsCssStyle
-                                        }}
-                                    >
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '12px' }} >
-                                            {page.icon}
-                                            {page.title}
-                                        </Box>
-                                    </Button>
+                                    <Link to={page.path} key={page.title}>
+                                        <Button
+                                            variant='text'
+                                            sx={{
+                                                ...navButtonsCssStyle
+                                            }}
+                                        >
+                                            <Box sx={{
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                fontSize: '12px'
+                                            }} >
+                                                {page.icon}
+                                                {page.title}
+                                            </Box>
+                                        </Button>
+                                    </Link>
                                 ))}
                             </ButtonGroup>
                         </Box>
@@ -152,16 +175,9 @@ export default function Navigation() {
                             isUserLoggedIn ?
                                 <Avatar
                                     alt='profile-picture'
-                                    sx={{
-                                        marginLeft: 'auto',
-                                        cursor: 'pointer'
-                                    }}
+                                    sx={{ marginLeft: 'auto', cursor: 'pointer' }}
                                     onClick={handleProfileMenuClick}
-                                    src={
-                                        hasUserProfilePicture ?
-                                            logo :
-                                            null
-                                    }
+                                    src={hasUserProfilePicture ? logo : null}
                                 /> :
                                 <Button variant='contained'>Вход</Button>
                         }
@@ -181,14 +197,16 @@ export default function Navigation() {
                             horizontal: 'right',
                         }}
                     >
-                        {profilePages.map((page) => (<MenuItem key={page}>{page}</MenuItem>))}
+                        {profilePages.map((page) => (
+                            <Link key={page.title} to={page.path}>
+                                <MenuItem>{page.title}</MenuItem>
+                            </Link>
+                        ))}
                     </Menu>
 
                 </Toolbar>
             </AppBar>
-            <Toolbar id='navbar' sx={{
-                backgroundColor: '#ffffff'
-            }} />
+            <Toolbar id='navbar' sx={{ backgroundColor: '#ffffff' }} />
         </>
     )
 }

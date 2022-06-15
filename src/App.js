@@ -4,8 +4,10 @@ import Navigation from "./components/NavigationBar/Navigation";
 import JobsPage from './components/JobsPage/JobsPage';
 import JobDescriptionPage from "./components/JobsPage/JobDescriptionPage";
 import PricingList from './components/PricingPlansPage/PricingList';
+import MainPage from "./components/MainPage/MainPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 
+import { Routes, Route } from 'react-router-dom';
 
 const theme = createTheme({
     typography: {
@@ -24,11 +26,16 @@ function App() {
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <Navigation />
-            <ProfilePage />
-            {/* <JobDescriptionPage /> */}
-            {/* <JobsPage /> */}
-            {/* <PricingList /> */}
 
+            <Routes>
+                <Route path='/' element={<MainPage />} />
+                <Route path='/pricing' element={<PricingList />} />
+
+                <Route path='/jobs' element={<JobsPage />} />
+                <Route path='/job-description' element={<JobDescriptionPage />} />
+
+                <Route path='/profile' element={<ProfilePage />} />
+            </Routes>
         </ThemeProvider>
     );
 }

@@ -38,8 +38,20 @@ export default function JobsPage() {
                     maxWidth: 400,
                     alignSelf: 'flex-start',
                     flexGrow: 1,
-                    position: 'sticky',
-                    // margin: 'auto',
+                    position: {
+                        xs: 'static',
+                        sm: 'sticky',
+                    },
+                    margin: {
+                        xs: 'auto',
+                        sm: 0,
+                    },
+                    marginTop: {
+                        xs: 5,
+                    },
+                    marginBottom: {
+                        xs: 5,
+                    },
                     top: 80
                 }}>
                     <Card>
@@ -130,7 +142,9 @@ export default function JobsPage() {
                                         alt='card img'
                                     />
                                     <CardContent>
-                                        <Typography variant='body2' color='text.secondary'>{job.description.slice(0, 150)}...</Typography>
+                                        <Typography variant='body2' color='text.secondary'>
+                                            {job.description.slice(0, 150)}...
+                                        </Typography>
                                     </CardContent>
                                     <CardActions>
                                         <JobPreviewDialog job={job} />

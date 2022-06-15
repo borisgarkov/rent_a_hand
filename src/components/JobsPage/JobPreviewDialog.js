@@ -10,12 +10,15 @@ import { Avatar, Box, IconButton, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { forwardRef, useState } from 'react';
 
+import { useNavigate } from "react-router-dom";
+
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function JobPreviewDialog({ job }) {
     const [open, setOpen] = useState(false);
+    let navigate = useNavigate();
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -62,7 +65,9 @@ export default function JobPreviewDialog({ job }) {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button>Прегледай обява</Button>
+                    <Button onClick={() => (navigate('/job-description'))}>
+                        Прегледай обява
+                    </Button>
                 </DialogActions>
             </Dialog>
         </div >

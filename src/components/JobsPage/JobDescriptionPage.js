@@ -35,7 +35,7 @@ const flexContainerJobMetaDataStyle = {
     columnGap: 1,
 };
 
-export default function JobDescriptionPage(params) {
+export default function JobDescriptionPage() {
     return (
         <>
             <Box sx={{
