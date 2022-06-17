@@ -90,7 +90,15 @@ export default function PricingList() {
                 <Tab wrapped label='Фирмени Пакети' icon={<ApartmentOutlinedIcon />} iconPosition='start' value={1} />
             </Tabs>
 
-            <Grid container spacing={5} alignItems='flex-end' marginBottom={10} justifyContent='center'>
+            <Grid
+                container
+                spacing={5}
+                alignItems='flex-end'
+                marginBottom={10}
+                justifyContent='center'
+                data-aos="fade-up"
+                data-aos-duration="1000"
+            >
                 {
                     tab === 0 ?
                         standardPackages.map((card) => <PricingCard card={card} key={card.title} />) :
@@ -98,7 +106,6 @@ export default function PricingList() {
                 }
             </Grid>
             <FAQAccordion />
-            <BackToTopButton />
         </Box >
     )
 }

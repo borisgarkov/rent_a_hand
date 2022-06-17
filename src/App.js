@@ -9,6 +9,11 @@ import ProfilePage from "./components/ProfilePage/ProfilePage";
 
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from "./components/LoginPage/LoginPage";
+import BackToTopButton from "./components/CommonItems/BackToTopButton";
+import { useEffect } from "react";
+
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const theme = createTheme({
     typography: {
@@ -23,6 +28,12 @@ const theme = createTheme({
 
 
 function App() {
+
+    useEffect(() => {
+        Aos.init();
+        Aos.refresh();
+    }, []);
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -39,6 +50,8 @@ function App() {
 
                 <Route path='/login' element={<LoginPage />} />
             </Routes>
+
+            <BackToTopButton />
         </ThemeProvider>
     );
 }

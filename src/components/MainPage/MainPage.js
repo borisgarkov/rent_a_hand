@@ -7,20 +7,23 @@ import useScreenResolution from "../hooks/useScreenResolution";
 import styles from './main-page.module.css'
 
 export default function MainPage() {
-
     const isModileDevice = useScreenResolution();
 
     return (
         <>
-            <Stack sx={{
-                flexDirection: {
-                    xs: 'column',
-                    sm: 'row',
-                },
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: 10,
-            }}>
+            <Stack
+                sx={{
+                    flexDirection: {
+                        xs: 'column',
+                        sm: 'row',
+                    },
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: 10,
+                }}
+                data-aos="zoom-in-up"
+                data-aos-duration="1000"
+            >
 
                 {
                     isModileDevice ?
