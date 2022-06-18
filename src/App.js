@@ -6,14 +6,17 @@ import JobDescriptionPage from "./components/JobsPage/JobDescriptionPage";
 import PricingList from './components/PricingPlansPage/PricingList';
 import MainPage from "./components/MainPage/MainPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
+import RegisterPage from "./components/RegisterPage/RegisterPage";
 
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from "./components/LoginPage/LoginPage";
 import BackToTopButton from "./components/CommonItems/BackToTopButton";
+import InvalidURL from "./components/CommonItems/InvalidURL";
 import { useEffect } from "react";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
+import RegisterAsFreelancer from "./components/RegisterPage/RegisterAsFreelancer";
 
 const theme = createTheme({
     typography: {
@@ -49,6 +52,11 @@ function App() {
                 <Route path='/profile' element={<ProfilePage />} />
 
                 <Route path='/login' element={<LoginPage />} />
+                <Route path='/register' element={<RegisterPage />} />
+
+                <Route path='/test' element={<RegisterAsFreelancer />} />
+
+                <Route path='*' element={<InvalidURL />} />
             </Routes>
 
             <BackToTopButton />

@@ -1,5 +1,7 @@
 import { Button, Grid, Link, Paper, Stack, TextField, Typography, Avatar } from "@mui/material";
 
+import { useNavigate } from "react-router-dom";
+
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 
 import image from '../images/working_woman.jpeg';
@@ -18,6 +20,8 @@ function Copyright(props) {
 }
 
 export default function LoginPage() {
+    let navigate = useNavigate();
+
     return (
         <>
             <Grid container sx={{ height: '100vh' }}>
@@ -33,7 +37,7 @@ export default function LoginPage() {
                         backgroundPosition: 'center',
                     }}
                 />
-                <Grid item sx={12} sm={8} md={5} component={Paper} >
+                <Grid item xs={12} sm={8} md={5} component={Paper} >
                     <Stack sx={{ my: 8, mx: { xs: 4, md: 8 }, alignItems: 'center' }}>
                         <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
                             <LockOpenIcon />
@@ -65,9 +69,9 @@ export default function LoginPage() {
                             <Grid item xs>
                                 <Link variant="body2" href="">Забравена парола?</Link>
                             </Grid>
-                            <Grid item  >
+                            <Grid item>
                                 <Typography variant="body2">Нямате акаунт?</Typography>
-                                <Link variant="body2" href="">Регистрирайте се</Link>
+                                <Link variant="body2" sx={{ cursor: 'pointer' }} onClick={() => (navigate('/register'))}>Регистрирайте се</Link>
                             </Grid>
                         </Grid>
                         <Copyright sx={{ mt: 5 }} />

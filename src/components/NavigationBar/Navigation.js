@@ -181,7 +181,10 @@ export default function Navigation() {
                                     onClick={handleProfileMenuClick}
                                     src={hasUserProfilePicture ? logo : null}
                                 /> :
-                                <Button variant='contained' onClick={() => navigate('/login')}>Вход</Button>
+                                <>
+                                    <Button variant='outlined' onClick={() => navigate('/login')}>Вход</Button>
+                                    <Button variant='contained' onClick={() => navigate('/register')} sx={{ marginLeft: 1 }}>Регистрация</Button>
+                                </>
                         }
                     </Box>
 
