@@ -1,50 +1,36 @@
-import { Button, Card, CardActionArea, CardContent, CardHeader, CardMedia, Radio, Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 
 import freelancer_image from '../images/working_woman_standing.jpeg';
 import project_task_image from '../images/constructions.jpeg';
-// import project_task_image from '../images/working_desk.jpeg';
-// import jobs_image from '../images/working_man.jpeg';
-
 import jobs_image from '../images/business_woman.jpeg';
 
 import { useState } from "react";
 
-import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
-import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import RegisterCard from "./RegisterCard";
+
+const register_categories = [
+    {
+        category_description: 'Обяви за постоянна работа / стаж',
+        category_image: jobs_image,
+    },
+    {
+        category_description: 'Търся човек за проект / задача',
+        category_image: project_task_image,
+    },
+    {
+        category_description: 'Искам да работя на свободна практика',
+        category_image: freelancer_image,
+    },
+
+];
 
 export default function RegisterPage() {
-
-    const register_categories = [
-        {
-            category_description: 'Обяви за постоянна работа / стаж',
-            category_image: jobs_image,
-            buttonText: 'Обяви за работа',
-        },
-        {
-            category_description: 'Търся човек за проект / задача',
-            category_image: project_task_image,
-            buttonText: '',
-        },
-        {
-            category_description: 'Искам да работя на свободна практика',
-            category_image: freelancer_image,
-            buttonText: 'Аз мога/ аз съм',
-        },
-
-    ];
 
     const [selectedCategoryValue, setSelectedCategoryValue] = useState(register_categories[0].category_description);
 
     const handleChange = (event) => {
         setSelectedCategoryValue(event.currentTarget.innerText);
     };
-
-    const controlProps = (item) => ({
-        checked: selectedCategoryValue === item,
-        value: item,
-        name: 'size-radio-button-demo',
-        inputProps: { 'aria-label': item },
-    });
 
     return (
         <>
@@ -63,31 +49,24 @@ export default function RegisterPage() {
                     gap: { xs: 2, lg: 10 },
                     justifyContent: 'center',
                 }}>
-                    {
-                        register_categories.map(x => {
-                            return (
-                                <Card
-                                    key={x.category_description}
-                                    category={x.category_description}
-                                    onClick={handleChange}
-                                    sx={{ flex: { lg: '0 0 350px' } }}
-                                    data-aos="fade-up"
-                                >
-                                    <CardActionArea>
-                                        <CardMedia component='img' height='180' image={x.category_image} alt='category image' />
-                                        <CardContent sx={{
-                                            display: 'flex',
-                                            gap: 3,
-                                            height: 'auto'
-                                        }}>
-                                            <Typography>{x.category_description}</Typography>
-                                            <Radio {...controlProps(x.category_description)} size="small" />
-                                        </CardContent>
-                                    </CardActionArea>
-                                </Card>
-                            )
-                        })
-                    }
+                    <RegisterCard
+                        selectedCategoryValue={selectedCategoryValue}
+                        handleChange={handleChange}
+                        category_image={register_categories[0].category_image}
+                        category_description={register_categories[0].category_description}
+                    />
+                    <RegisterCard
+                        selectedCategoryValue={selectedCategoryValue}
+                        handleChange={handleChange}
+                        category_image={register_categories[1].category_image}
+                        category_description={register_categories[1].category_description}
+                    />
+                    <RegisterCard
+                        selectedCategoryValue={selectedCategoryValue}
+                        handleChange={handleChange}
+                        category_image={register_categories[2].category_image}
+                        category_description={register_categories[2].category_description}
+                    />
                 </Stack>
                 <Button variant='contained' sx={{ maxWidth: 400 }}>Регистрация в "{selectedCategoryValue}"</Button>
             </Stack>

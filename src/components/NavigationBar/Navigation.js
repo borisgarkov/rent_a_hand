@@ -127,7 +127,7 @@ export default function Navigation() {
                             onClose={handlePagesMenuClose}
                         >
                             {menuPages.map((page) => (
-                                <Link key={page.title} to={page.path}>
+                                <Link key={page.title} to={page.path} onClick={handlePagesMenuClose}>
                                     <MenuItem>{page.title}</MenuItem>
                                 </Link>
                             ))}
@@ -203,7 +203,7 @@ export default function Navigation() {
                         }}
                     >
                         {profilePages.map((page) => (
-                            <Link key={page.title} to={page.path}>
+                            <Link key={page.title} to={page.path} onClick={handleProfileMenuClose}>
                                 <MenuItem>{page.title}</MenuItem>
                             </Link>
                         ))}

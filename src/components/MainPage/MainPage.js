@@ -21,14 +21,12 @@ export default function MainPage() {
                     alignItems: 'center',
                     gap: 10,
                 }}
-                data-aos="zoom-in-up"
-                data-aos-duration="1000"
             >
 
                 {
                     isModileDevice ?
                         '' :
-                        <img src={logo} alt='logo' loading='lazy' className={styles['image']} />
+                        <img src={logo} alt='logo' className={styles['image']} />
                 }
 
                 <Stack>
