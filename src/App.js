@@ -53,8 +53,7 @@ function App() {
 
                 <Route path='/login' element={<LoginPage />} />
                 <Route path='/register' element={<RegisterPage />} />
-
-                <Route path='/test' element={<RegisterAsFreelancer />} />
+                <Route path='/register-as-freelancer' element={<RegisterAsFreelancer />} />
 
                 <Route path='*' element={<InvalidURL />} />
             </Routes>

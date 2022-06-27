@@ -1,10 +1,10 @@
-import { Stack, Typography, Button, FormControl, InputLabel, Select, MenuList, Card, CardContent, Paper, Tabs, Tab } from "@mui/material";
-import job_offers_img from '../images/main_page/main_page_job_offers.jpeg';
+import { Stack, Typography, Button, Paper, Tabs, Tab } from "@mui/material";
+
+import job_offers_img from '../images/main_page/main_page_job_offers.jpg';
 import projects_img from '../images/main_page/main_page_projects.jpeg';
 import freelancer_img from '../images/main_page/main_page_freelancer.jpeg';
+import desk_img from '../images/main_page/main_pageworking_desk.jpeg'
 
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import ApartmentOutlinedIcon from '@mui/icons-material/ApartmentOutlined';
 import WorkIcon from '@mui/icons-material/Work';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
@@ -50,7 +50,7 @@ const JobsTabInfo = () => {
                 marginBottom: 5,
             }}>
                 <Button variant='contained'>Корпоративни Планове</Button>
-                <Button variant='outlined'>Обяви за работа</Button>
+                <Button variant='outlined'>Качи обява за работа</Button>
             </Stack>
         </>
     )
@@ -77,7 +77,7 @@ const ProjectsTabInfo = () => {
                 justifyContent: 'space-evenly',
                 marginBottom: 5,
             }}>
-                <Button variant='contained'>Към регистрация</Button>
+                <Button variant='contained'>Регистрация</Button>
                 <Button variant='outlined'>Проекти</Button>
             </Stack>
         </>
@@ -109,7 +109,7 @@ const FreelancerTabInfo = () => {
                 justifyContent: 'space-evenly',
                 marginBottom: 5,
             }}>
-                <Button variant='contained'>Към регистрация</Button>
+                <Button variant='contained'>Регистрация</Button>
             </Stack>
         </>
     )

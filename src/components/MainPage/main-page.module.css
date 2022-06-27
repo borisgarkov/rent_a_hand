@@ -1,12 +1,7 @@
 .image {
     width: 100%;
-    /* object-fit: cover; */
-    /* position: absolute; */
-    /* z-index: 0; */
 }
 
-.card-style {
-    position: absolute;
-    top: 20%;
-    left: 10%;
+.image-half-height {
+    height: 50%;
 }

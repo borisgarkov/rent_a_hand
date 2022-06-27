@@ -7,6 +7,7 @@ import jobs_image from '../images/business_woman.jpeg';
 import { useState } from "react";
 
 import RegisterCard from "./RegisterCard";
+import { useNavigate } from "react-router-dom";
 
 const register_categories = [
     {
@@ -25,6 +26,8 @@ const register_categories = [
 ];
 
 export default function RegisterPage() {
+
+    const navigate = useNavigate();
 
     const [selectedCategoryValue, setSelectedCategoryValue] = useState(register_categories[0].category_description);
 
@@ -68,7 +71,13 @@ export default function RegisterPage() {
                         category_description={register_categories[2].category_description}
                     />
                 </Stack>
-                <Button variant='contained' sx={{ maxWidth: 400 }}>Регистрация в "{selectedCategoryValue}"</Button>
+                <Button
+                    variant='contained'
+                    sx={{ maxWidth: 400 }}
+                    onClick={() => navigate('/register-as-freelancer')}
+                >
+                    Регистрация в "{selectedCategoryValue}"
+                </Button>
             </Stack>
         </>
     )
