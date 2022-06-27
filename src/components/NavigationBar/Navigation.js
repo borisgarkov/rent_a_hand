@@ -4,6 +4,8 @@ import { Box } from "@mui/system";
 import HomeIcon from '@mui/icons-material/Home';
 import WorkIcon from '@mui/icons-material/Work';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import LoginIcon from '@mui/icons-material/Login';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
@@ -40,6 +42,16 @@ export default function Navigation() {
             icon: <LocalOfferIcon fontSize="small" />,
             path: '/pricing',
         },
+        {
+            title: 'Вход',
+            icon: <LoginIcon fontSize="small" />,
+            path: '/login',
+        },
+        {
+            title: 'Регистрация',
+            icon: <HowToRegIcon fontSize="small" />,
+            path: '/register',
+        },
     ];
 
     const profilePages = [
@@ -69,13 +81,12 @@ export default function Navigation() {
     };
 
     let isUserLoggedIn = true;
-    let hasUserProfilePicture = true;
 
-    const ProfileSection = <MainPageMenuDrawer
+    const ProfileSection = isUserLoggedIn ? <MainPageMenuDrawer
         menuItems={profilePages}
         isUserLoggedIn={isUserLoggedIn}
         isUserSection={true}
-    />;
+    /> : null;
 
     const HomeJobsPlanSection = isMobile ?
         <MainPageMenuDrawer menuItems={menuPages} isUserSection={false} /> :
