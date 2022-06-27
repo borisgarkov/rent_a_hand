@@ -162,7 +162,7 @@ export default function MainPage() {
             <Stack>
                 <img className={styles['image']} loading='lazy' src={backgroundImg} alt='job offers img' />
             </Stack>
-            <Paper sx={{ width: { xs: '100%', md: '35%' }, position: { xs: 'static', md: 'absolute' }, top: { md: '20%' }, left: { md: '10%' } }}>
+            <Paper sx={{ width: { xs: '100%', md: 650 }, position: { xs: 'static', md: 'absolute' }, top: { md: 200 }, left: { md: 150 } }}>
                 <Tabs
                     value={tab}
                     centered
