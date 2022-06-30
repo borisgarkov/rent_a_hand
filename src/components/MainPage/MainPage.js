@@ -11,6 +11,8 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 import useScreenResolution from "../hooks/useScreenResolution";
 
+import { Link, useNavigate } from 'react-router-dom';
+
 import styles from './main-page.module.css'
 import { useState } from "react";
 
@@ -85,6 +87,8 @@ const ProjectsTabInfo = () => {
 };
 
 const FreelancerTabInfo = () => {
+    const navigate = useNavigate();
+
     return (
         <>
             <Stack sx={{
@@ -109,7 +113,7 @@ const FreelancerTabInfo = () => {
                 justifyContent: 'space-evenly',
                 marginBottom: 5,
             }}>
-                <Button variant='contained'>Регистрация</Button>
+                <Button variant='contained' onClick={() => navigate('register-as-freelancer')}>Регистрация</Button>
             </Stack>
         </>
     )

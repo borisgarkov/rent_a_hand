@@ -99,7 +99,7 @@ export default function Navigation() {
                             flexDirection: 'column',
                             alignItems: 'center',
                             fontSize: '12px',
-                            margin: '0 30px',
+                            margin: '0 20px',
                         }} >
                             {page.icon}
                             {page.title}

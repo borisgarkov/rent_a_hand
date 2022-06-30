@@ -1,12 +1,31 @@
-import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/system/Box';
-import { Button } from '@mui/material';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { useState } from 'react';
+
+import DoneIcon from '@mui/icons-material/Done';
 
 
 export default function AddressFormFreelancerRegister() {
+
+    const [isImageUploaded, setIsImageUploaded] = useState(false);
+
+    const getImageUploaded = (event) => {
+        let imagePath = event.target.value;
+        if (imagePath) {
+            setIsImageUploaded(true);
+        };
+    };
+
+    const flexStyle = {
+        flexDirection: 'row',
+        gap: 5,
+        alignItems: 'center',
+    };
+
     return (
         <Box sx={{ margin: { md: '30px auto' } }}>
             <Typography variant="h6" sx={{ marginBottom: 5 }}>
@@ -83,17 +102,27 @@ export default function AddressFormFreelancerRegister() {
                     <input
                         accept="image/*"
                         style={{ display: 'none' }}
-                        id="raised-button-file"
-                        multiple
+                        id="upload-profile-image"
                         type="file"
+                        onChange={getImageUploaded}
                     />
-                    <label htmlFor="raised-button-file">
-                        <Button variant="outlined" component="span">
-                            Избери Профилна снимка
-                        </Button>
-                    </label>
+                    <Stack sx={{ ...flexStyle, flexDirection: { xs: 'column', md: 'row' } }}>
+                        <label htmlFor="upload-profile-image">
+                            <Button variant="outlined" component="span">
+                                Избери Профилна снимка *
+                            </Button>
+                        </label>
+                        {
+                            isImageUploaded ?
+                                <Stack sx={{ ...flexStyle, gap: 2 }}>
+                                    <DoneIcon sx={{ color: 'green' }} />
+                                    <Typography>Успешно прикачена снимка</Typography>
+                                </Stack> :
+                                null
+                        }
+                    </Stack>
                 </Grid>
             </Grid>
-        </Box>
+        </Box >
     );
 }

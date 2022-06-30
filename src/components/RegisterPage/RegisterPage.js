@@ -5,9 +5,9 @@ import project_task_image from '../images/constructions.jpeg';
 import jobs_image from '../images/business_woman.jpeg';
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import RegisterCard from "./RegisterCard";
-import { useNavigate } from "react-router-dom";
 
 const register_categories = [
     {
@@ -24,6 +24,12 @@ const register_categories = [
     },
 
 ];
+
+const registerUrlMap = {
+    'Обяви за постоянна работа / стаж': '/register-as-firm',
+    'Търся човек за проект / задача': '/register-projects',
+    'Искам да работя на свободна практика': '/register-as-freelancer',
+}
 
 export default function RegisterPage() {
 
@@ -52,29 +58,24 @@ export default function RegisterPage() {
                     gap: { xs: 2, lg: 10 },
                     justifyContent: 'center',
                 }}>
-                    <RegisterCard
-                        selectedCategoryValue={selectedCategoryValue}
-                        handleChange={handleChange}
-                        category_image={register_categories[0].category_image}
-                        category_description={register_categories[0].category_description}
-                    />
-                    <RegisterCard
-                        selectedCategoryValue={selectedCategoryValue}
-                        handleChange={handleChange}
-                        category_image={register_categories[1].category_image}
-                        category_description={register_categories[1].category_description}
-                    />
-                    <RegisterCard
-                        selectedCategoryValue={selectedCategoryValue}
-                        handleChange={handleChange}
-                        category_image={register_categories[2].category_image}
-                        category_description={register_categories[2].category_description}
-                    />
+                    {
+                        register_categories.map(x => {
+                            return <RegisterCard
+                                key={x.category_description}
+                                selectedCategoryValue={selectedCategoryValue}
+                                handleChange={handleChange}
+                                category_image={x.category_image}
+                                category_description={x.category_description}
+                            />
+                        })
+                    }
                 </Stack>
                 <Button
                     variant='contained'
                     sx={{ maxWidth: 400 }}
-                    onClick={() => navigate('/register-as-freelancer')}
+                    onClick={() => {
+                        navigate(registerUrlMap[selectedCategoryValue])
+                    }}
                 >
                     Регистрация в "{selectedCategoryValue}"
                 </Button>

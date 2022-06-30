@@ -16,7 +16,8 @@ import { useEffect } from "react";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
-import RegisterAsFreelancer from "./components/RegisterPage/RegisterAsFreelancer";
+import RegisterAsFreelancerForm from "./components/RegisterPage/RegisterAsFreelancerComponents/RegisterAsFreelancerForm";
+import RegisterAsFirmForm from "./components/RegisterPage/RegisterAsFirmComponents/RegisterAsFirmForm";
 
 const theme = createTheme({
     typography: {
@@ -52,8 +53,10 @@ function App() {
                 <Route path='/profile' element={<ProfilePage />} />
 
                 <Route path='/login' element={<LoginPage />} />
+
                 <Route path='/register' element={<RegisterPage />} />
-                <Route path='/register-as-freelancer' element={<RegisterAsFreelancer />} />
+                <Route path='/register-as-freelancer' element={<RegisterAsFreelancerForm />} />
+                <Route path='/register-as-firm' element={<RegisterAsFirmForm />} />
 
                 <Route path='*' element={<InvalidURL />} />
             </Routes>
