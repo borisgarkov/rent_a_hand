@@ -1,6 +1,6 @@
 import AddressFormFreelancerRegister from './AddressFormFreelancerRegister';
 import SkillsEducationFormFreelancerRegister from './SkillsEducationFormFreelancerRegister';
-import PolicyFreelancerRegister from './PolicyFreelancerRegister';
+import PersonalDataReview from '../CommonRegistrationComponents/PersonalDataReview';
 
 import freelancer_img from '../../images/main_page/main_page_freelancer.jpeg';
 
@@ -17,7 +17,7 @@ const steps = [
     },
     {
         label: 'Политика за поверителност',
-        content: <PolicyFreelancerRegister />,
+        content: <PersonalDataReview />,
     },
 ];
 
