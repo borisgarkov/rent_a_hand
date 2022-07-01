@@ -4,7 +4,7 @@ import PolicyFreelancerRegister from './PolicyFreelancerRegister';
 
 import freelancer_img from '../../images/main_page/main_page_freelancer.jpeg';
 
-import BaseRegistrationForm from '../BaseRegistrationForm';
+import BaseRegistrationTemplate from '../CommonRegistrationComponents/BaseRegistrationTemplate';
 
 const steps = [
     {
@@ -23,7 +23,7 @@ const steps = [
 
 export default function RegisterAsFreelancerForm() {
     return (
-        <BaseRegistrationForm
+        <BaseRegistrationTemplate
             backgroundPicture={freelancer_img}
             registrationTitle={'Регистрация в \' Таланти\''}
             steps={steps}

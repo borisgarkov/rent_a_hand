@@ -1,22 +1,21 @@
-import AddressFormFreelancerRegister from '../RegisterAsFreelancerComponents/AddressFormFreelancerRegister';
-import SkillsEducationFormFreelancerRegister from '../RegisterAsFreelancerComponents/SkillsEducationFormFreelancerRegister';
-import PolicyFreelancerRegister from '../RegisterAsFreelancerComponents/PolicyFreelancerRegister';
 
-import BaseRegistrationForm from '../BaseRegistrationForm';
+
+import BaseRegistrationForm from '../CommonRegistrationComponents/BaseRegistrationTemplate';
 
 import job_offers_img from '../../images/main_page/main_page_job_offers.jpeg';
+import AddressFormFirmRegister from './AddressFormFirmRegister';
 
 const steps = [
     {
-        label: '',
+        label: 'Адресна регистрация',
+        content: <AddressFormFirmRegister />,
+    },
+    {
+        label: 's',
         content: '',
     },
     {
-        label: '',
-        content: '',
-    },
-    {
-        label: '',
+        label: 'a',
         content: '',
     },
 ];

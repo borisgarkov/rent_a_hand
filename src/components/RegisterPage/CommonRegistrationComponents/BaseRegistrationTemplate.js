@@ -2,7 +2,7 @@ import { Button, Grid, Paper, Step, StepContent, StepLabel, Stepper, Typography 
 import { Box } from "@mui/system";
 import { useState } from "react";
 
-export default function BaseRegistrationForm({
+export default function BaseRegistrationTemplate({
     backgroundPicture,
     registrationTitle,
     steps,
@@ -40,7 +40,7 @@ export default function BaseRegistrationForm({
                         <Step key={step.label}>
                             <StepLabel
                                 optional={
-                                    index === 2 ? (
+                                    index === steps.length - 1 ? (
                                         <Typography variant="caption">Последна стъпка</Typography>
                                     ) : null
                                 }
