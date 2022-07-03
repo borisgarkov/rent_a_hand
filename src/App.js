@@ -6,7 +6,7 @@ import JobDescriptionPage from "./components/JobsPage/JobDescriptionPage";
 import PricingList from './components/PricingPlansPage/PricingList';
 import MainPage from "./components/MainPage/MainPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
-import RegisterPage from "./components/RegisterPage/RegisterPage";
+import RegisterPageCategories from "./components/RegisterPage/RegisterPageCategories";
 
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from "./components/LoginPage/LoginPage";
@@ -18,6 +18,8 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import RegisterAsFreelancerForm from "./components/RegisterPage/RegisterAsFreelancerComponents/RegisterAsFreelancerForm";
 import RegisterAsFirmForm from "./components/RegisterPage/RegisterAsFirmComponents/RegisterAsFirmForm";
+import ProjectRegistrationCategories from "./components/RegisterPage/RegisterForProjectComponents/ProjectRegistrationCategories";
+import RegisterProjectAsPersonForm from "./components/RegisterPage/RegisterForProjectComponents/RegisterProjectAsPersonForm";
 
 const theme = createTheme({
     typography: {
@@ -54,9 +56,11 @@ function App() {
 
                 <Route path='/login' element={<LoginPage />} />
 
-                <Route path='/register' element={<RegisterPage />} />
+                <Route path='/register' element={<RegisterPageCategories />} />
                 <Route path='/register-as-freelancer' element={<RegisterAsFreelancerForm />} />
                 <Route path='/register-as-firm' element={<RegisterAsFirmForm />} />
+                <Route path='/register-project' element={<ProjectRegistrationCategories />} />
+                <Route path='/register-person-project' element={<RegisterProjectAsPersonForm />} />
 
                 <Route path='*' element={<InvalidURL />} />
             </Routes>

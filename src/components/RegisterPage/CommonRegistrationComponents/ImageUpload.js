@@ -35,8 +35,8 @@ export default function ImageUpload({
                 onChange={getImageUploaded}
             />
             <Stack sx={{ ...flexStyle, flexDirection: { xs: 'column', md: 'row' } }}>
-                <label htmlFor="upload-profile-image">
-                    <Button variant="outlined" component="span">
+                <label htmlFor="upload-profile-image" style={{ width: '100%' }}>
+                    <Button variant="outlined" component="span" fullWidth>
                         {uploadImageText}
                     </Button>
                 </label>

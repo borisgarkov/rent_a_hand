@@ -114,7 +114,7 @@ export default function Navigation() {
         <>
             <AppBar sx={{ backgroundColor: 'white' }}>
                 <Toolbar sx={{
-                    width: { xs: '100%', md: '1650px' },
+                    width: { xs: '100%' },
                     margin: '0 auto',
                     justifyContent: 'space-between'
                 }}>

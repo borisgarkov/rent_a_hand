@@ -1,4 +1,4 @@
-import { Grid, TextField } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import BaseRegistrationForm from "../CommonRegistrationComponents/BaseRegistrationForm";
 import ImageUpload from "../CommonRegistrationComponents/ImageUpload";
 
@@ -65,17 +65,6 @@ const registrationFields = [
         label: 'Сайт на компанията',
         autoComplete: 'website',
         required: false,
-        displaySizeProps: {
-            xs: 12,
-        }
-    },
-    {
-        type: 'tel',
-        textField: 'phone',
-        id: 'phone',
-        label: 'Телефон за връзка',
-        autoComplete: 'phone',
-        required: true,
         displaySizeProps: {
             xs: 12,
         }

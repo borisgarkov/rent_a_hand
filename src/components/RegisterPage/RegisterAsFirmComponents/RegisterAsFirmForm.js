@@ -5,6 +5,7 @@ import BaseRegistrationForm from '../CommonRegistrationComponents/BaseRegistrati
 import job_offers_img from '../../images/main_page/main_page_job_offers.jpeg';
 import AddressFormFirmRegister from './AddressFormFirmRegister';
 import PersonalDataReview from '../CommonRegistrationComponents/PersonalDataReview';
+import AdministrativeInfo from './AdministrativeInfo';
 
 const steps = [
     {
@@ -13,7 +14,7 @@ const steps = [
     },
     {
         label: 'Административна информация',
-        content: '',
+        content: <AdministrativeInfo />,
     },
     {
         label: 'Политика за поверителност',

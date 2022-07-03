@@ -3,15 +3,13 @@ import { Stack, Typography, Button, Paper, Tabs, Tab } from "@mui/material";
 import job_offers_img from '../images/main_page/main_page_job_offers.jpg';
 import projects_img from '../images/main_page/main_page_projects.jpeg';
 import freelancer_img from '../images/main_page/main_page_freelancer.jpeg';
-import desk_img from '../images/main_page/main_pageworking_desk.jpeg'
 
 import WorkIcon from '@mui/icons-material/Work';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 
-import useScreenResolution from "../hooks/useScreenResolution";
 
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './main-page.module.css'
 import { useState } from "react";
@@ -130,7 +128,6 @@ export default function MainPage() {
         2: freelancer_img,
     };
 
-    const isModileDevice = useScreenResolution();
     const tabsChangeHandler = (event, newTab) => {
         setTab(newTab);
         setBackgroundImg(tab_images[newTab]);
@@ -166,7 +163,7 @@ export default function MainPage() {
             <Stack>
                 <img className={styles['image']} loading='lazy' src={backgroundImg} alt='job offers img' />
             </Stack>
-            <Paper sx={{ width: { xs: '100%', md: 650 }, position: { xs: 'static', md: 'absolute' }, top: { md: 200 }, left: { md: 150 } }}>
+            <Paper sx={{ width: { xs: '100%', md: 576 }, position: { xs: 'static', md: 'absolute' }, top: { md: 200 }, left: { md: 150 } }}>
                 <Tabs
                     value={tab}
                     centered
