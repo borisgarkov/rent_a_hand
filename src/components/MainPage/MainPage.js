@@ -24,6 +24,8 @@ const tabs_css_style = {
 };
 
 const JobsTabInfo = () => {
+    const navigate = useNavigate();
+
     return (
         <>
             <Stack sx={{
@@ -49,14 +51,16 @@ const JobsTabInfo = () => {
                 justifyContent: 'space-evenly',
                 marginBottom: 5,
             }}>
-                <Button variant='contained'>Корпоративни Планове</Button>
-                <Button variant='outlined'>Качи обява за работа</Button>
+                <Button variant='contained' onClick={() => navigate('/pricing')}>Корпоративни Планове</Button>
+                <Button variant='outlined' onClick={() => navigate('/register-as-firm')}>Качи обява за работа</Button>
             </Stack>
         </>
     )
 };
 
 const ProjectsTabInfo = () => {
+    const navigate = useNavigate();
+
     return (
         <>
             <Stack sx={{
@@ -77,8 +81,8 @@ const ProjectsTabInfo = () => {
                 justifyContent: 'space-evenly',
                 marginBottom: 5,
             }}>
-                <Button variant='contained'>Регистрация</Button>
-                <Button variant='outlined'>Проекти</Button>
+                <Button variant='contained' onClick={() => navigate('/register-project')}>Регистрация</Button>
+                <Button variant='outlined' onClick={() => navigate('/jobs')}>Проекти</Button>
             </Stack>
         </>
     )
@@ -111,7 +115,7 @@ const FreelancerTabInfo = () => {
                 justifyContent: 'space-evenly',
                 marginBottom: 5,
             }}>
-                <Button variant='contained' onClick={() => navigate('register-as-freelancer')}>Регистрация</Button>
+                <Button variant='contained' onClick={() => navigate('/register-as-freelancer')}>Регистрация</Button>
             </Stack>
         </>
     )
