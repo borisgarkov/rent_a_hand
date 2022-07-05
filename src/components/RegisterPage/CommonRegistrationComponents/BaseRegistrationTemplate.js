@@ -19,21 +19,11 @@ export default function BaseRegistrationTemplate({
     };
 
     return (
-        <Grid container sx={{ height: '100vh' }}>
-            <Grid
-                item
-                xs={false}
-                sm={4}
-                md={7}
-                sx={{
-                    backgroundImage: `url(${backgroundPicture})`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                }}
-            />
-
-            <Grid item xs={12} sm={8} md={5} component={Paper} sx={{ padding: { xs: 2, md: 5 } }}>
+        <Grid container sx={{
+            height: '100vh',
+            justifyContent: 'center'
+        }} >
+            <Grid item xs={12} sm={8} component={Paper} sx={{ padding: { xs: 2, md: 5 } }}>
                 <Typography variant='h5' sx={{ margin: '10px', fontWeight: 'bold' }}>{registrationTitle}</Typography>
                 <Stepper activeStep={activeStep} orientation="vertical">
                     {steps.map((step, index) => (
