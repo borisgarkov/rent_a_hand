@@ -16,7 +16,7 @@ const register_categories = [
 ];
 
 const registerUrlMap = {
-    'Юридическо лице': '/register-as-firm',
+    'Юридическо лице': '/register-firm-project',
     'Физическо лице': '/register-person-project',
 }
 

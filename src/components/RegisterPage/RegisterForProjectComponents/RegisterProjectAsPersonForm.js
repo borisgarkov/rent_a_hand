@@ -3,7 +3,7 @@ import PersonalDataReview from "../CommonRegistrationComponents/PersonalDataRevi
 import AddressFormFreelancerRegister from "../RegisterAsFreelancerComponents/AddressFormFreelancerRegister";
 
 import freelancer_img from '../../images/main_page/main_page_freelancer.jpeg';
-import AddProjectDescription from "./AddProjectDescription";
+import ProjectDescription from "../CommonRegistrationComponents/ProjectDescription";
 
 const steps = [
     {
@@ -12,7 +12,7 @@ const steps = [
     },
     {
         label: 'Описание на проекта',
-        content: <AddProjectDescription />,
+        content: <ProjectDescription />,
     },
     {
         label: 'Политика за поверителност',

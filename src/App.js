@@ -20,6 +20,7 @@ import RegisterAsFreelancerForm from "./components/RegisterPage/RegisterAsFreela
 import RegisterAsFirmForm from "./components/RegisterPage/RegisterAsFirmComponents/RegisterAsFirmForm";
 import ProjectRegistrationCategories from "./components/RegisterPage/RegisterForProjectComponents/ProjectRegistrationCategories";
 import RegisterProjectAsPersonForm from "./components/RegisterPage/RegisterForProjectComponents/RegisterProjectAsPersonForm";
+import RegisterProjectAsFirm from "./components/RegisterPage/RegisterForProjectComponents/RegisterProjectAsFirm";
 
 const theme = createTheme({
     typography: {
@@ -61,6 +62,7 @@ function App() {
                 <Route path='/register-as-firm' element={<RegisterAsFirmForm />} />
                 <Route path='/register-project' element={<ProjectRegistrationCategories />} />
                 <Route path='/register-person-project' element={<RegisterProjectAsPersonForm />} />
+                <Route path='/register-firm-project' element={<RegisterProjectAsFirm />} />
 
                 <Route path='*' element={<InvalidURL />} />
             </Routes>
