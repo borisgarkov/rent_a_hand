@@ -1,11 +1,11 @@
 import { useTheme } from "@emotion/react";
 import { useMediaQuery } from '@mui/material';
 
-function useScreenResolution() {
+function useScreenResolution(breakpoint = 'sm') {
     const theme = useTheme();
-    const isModileDevice = useMediaQuery(theme.breakpoints.down('sm'));
+    const isBelowTargetResolution = useMediaQuery(theme.breakpoints.down(breakpoint));
 
-    return isModileDevice;
+    return isBelowTargetResolution;
 };
 
 export default useScreenResolution;

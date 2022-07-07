@@ -56,14 +56,15 @@ export default function Navigation() {
 
     const profilePages = [
         {
-            title: 'Профил',
+            title: 'Профил потребител',
             icon: <PermIdentityIcon />,
             path: '/profile',
         },
-        // {
-        //     title: 'Създай обява',
-        //     path: '/create-job',
-        // },
+        {
+            title: 'Профил фирма',
+            icon: <PermIdentityIcon />,
+            path: '/company-page',
+        },
         {
             title: 'Настройки',
             icon: <SettingsApplicationsIcon />,

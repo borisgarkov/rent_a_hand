@@ -5,7 +5,6 @@ import JobsPage from './components/JobsPage/JobsPage';
 import JobDescriptionPage from "./components/JobsPage/JobDescriptionPage";
 import PricingList from './components/PricingPlansPage/PricingList';
 import MainPage from "./components/MainPage/MainPage";
-import ProfilePage from "./components/ProfilePage/ProfilePage";
 import RegisterPageCategories from "./components/RegisterPage/RegisterPageCategories";
 
 import { Routes, Route } from 'react-router-dom';
@@ -21,6 +20,8 @@ import RegisterAsFirmForm from "./components/RegisterPage/RegisterAsFirmComponen
 import ProjectRegistrationCategories from "./components/RegisterPage/RegisterForProjectComponents/ProjectRegistrationCategories";
 import RegisterProjectAsPersonForm from "./components/RegisterPage/RegisterForProjectComponents/RegisterProjectAsPersonForm";
 import RegisterProjectAsFirm from "./components/RegisterPage/RegisterForProjectComponents/RegisterProjectAsFirm";
+import UserProfilePage from "./components/ProfilePage/UserProfilePage";
+import CompanyProfilePage from "./components/ProfilePage/CompanyProfilePage";
 
 const theme = createTheme({
     typography: {
@@ -53,7 +54,8 @@ function App() {
                 <Route path='/jobs' element={<JobsPage />} />
                 <Route path='/job-description' element={<JobDescriptionPage />} />
 
-                <Route path='/profile' element={<ProfilePage />} />
+                <Route path='/profile' element={<UserProfilePage />} />
+                <Route path='/company-page' element={<CompanyProfilePage />} />
 
                 <Route path='/login' element={<LoginPage />} />
 

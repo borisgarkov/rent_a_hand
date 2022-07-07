@@ -1,15 +1,15 @@
 import { Card, Divider, Stack } from "@mui/material";
 
-import { ProfileHeading } from "./ProfilePageComponents/ProfileHeading";
-import { UserJobSection } from "./ProfilePageComponents/UserJobSection";
-import { UserResumeSection } from "./ProfilePageComponents/UserResumeSection";
-import { UserSkillsSection } from "./ProfilePageComponents/UserSkillsSection";
-import { UserSalaryAndEducationSection } from "./ProfilePageComponents/UserSalaryAndEducationSection";
-import { SaveUserToFavouriteSection } from "./ProfilePageComponents/SaveUserToFavouriteSection";
+import { ProfileHeading } from "./UserProfilePageComponents/ProfileHeading";
+import { UserJobSection } from "./UserProfilePageComponents/UserJobSection";
+import { UserResumeSection } from "./UserProfilePageComponents/UserResumeSection";
+import { UserSkillsSection } from "./UserProfilePageComponents/UserSkillsSection";
+import { UserSalaryAndEducationSection } from "./UserProfilePageComponents/UserSalaryAndEducationSection";
+import { SaveUserToFavouriteSection } from "./UserProfilePageComponents/SaveUserToFavouriteSection";
 
 import BackToTopButton from '../CommonItems/BackToTopButton';
 
-export default function ProfilePage() {
+export default function UserProfilePage() {
     return (
         <>
             <ProfileHeading />

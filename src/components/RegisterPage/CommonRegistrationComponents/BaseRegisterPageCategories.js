@@ -16,7 +16,10 @@ export default function RegisterPageCategories({
     const [selectedCategoryValue, setSelectedCategoryValue] = useState(register_categories[0].category_description);
 
     const handleChange = (event) => {
+        console.log(event.currentTarget.innerText)
         setSelectedCategoryValue(event.currentTarget.innerText);
+        console.log(selectedCategoryValue);
+
     };
 
     return (
