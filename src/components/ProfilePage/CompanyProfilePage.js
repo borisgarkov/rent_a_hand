@@ -1,11 +1,18 @@
-import { Avatar, Box, Card, CardContent, CardHeader, CardMedia, Chip, Divider, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Card, CardActionArea, CardContent, CardHeader, CardMedia, Chip, Divider, Grid, Stack, Typography } from "@mui/material";
 import header_image from '../images/main_page/main_pageworking_desk.jpeg';
+import logo from '../images/Rent A Hand_D1.png';
 
 import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
 import PeopleAltTwoToneIcon from '@mui/icons-material/PeopleAltTwoTone';
 import DocumentScannerTwoToneIcon from '@mui/icons-material/DocumentScannerTwoTone';
 import MapsHomeWorkTwoToneIcon from '@mui/icons-material/MapsHomeWorkTwoTone';
 import useScreenResolution from "../hooks/useScreenResolution";
+
+import style from './profile-page-style.module.css';
+
+import { jobs } from "../JobsPage/test-jobs";
+import JobsCatalog from "../JobsPage/JobsCatalog";
+import { Fragment } from "react";
 
 
 const companyInfo = `
@@ -43,7 +50,20 @@ export default function CompanyProfilePage() {
                 {
                     isBelowMediumResolution ?
                         null :
-                        <Avatar sx={{ width: 120, height: 120, position: 'absolute', top: '410px', left: '260px' }} />
+                        <Avatar
+                            className={style['image-style']}
+                            src={logo}
+                            sx={{
+                                width: 120,
+                                height: 120,
+                                position: 'absolute',
+                                top: '410px',
+                                left: '260px',
+                                backgroundColor: 'white',
+                                border: '1px solid #e2e2e2'
+                            }}
+                            alt='logo'
+                        />
                 }
                 <CardHeader
                     title='Rent A Hand'
@@ -97,8 +117,42 @@ export default function CompanyProfilePage() {
 
                     </CardContent>
                 </Stack>
-
             </Card>
+            <Stack sx={{
+                maxWidth: 1100,
+                margin: '10px auto',
+            }}>
+                <CardContent>
+                    <Typography variant="h6">
+                        Обяви за работа
+                    </Typography>
+                </CardContent>
+                {
+                    jobs.map(job => (
+                        <CardActionArea key={job.id}>
+                            <CardHeader
+                                title={job.title}
+                                subheader={`${job.datePosted} - ${job.city}`}
+                                avatar={
+                                    <Avatar
+                                        className={style['image-style']}
+                                        src={logo}
+                                        sx={{
+                                            backgroundColor: 'white',
+                                            border: '1px solid #e2e2e2'
+                                        }}
+                                        alt='logo'
+                                    />
+                                }
+                            />
+                            <Divider />
+                        </CardActionArea>
+                    ))
+                }
+
+
+            </Stack>
+
         </>
     )
 }

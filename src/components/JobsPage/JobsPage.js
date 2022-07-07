@@ -2,16 +2,16 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
-import { Avatar, CardActions, CardMedia, Divider, FormControl, InputLabel, MenuList, Pagination, Select, Stack, TextField, Typography, Box } from '@mui/material';
+import { Divider, FormControl, InputLabel, MenuList, Pagination, Select, Stack, TextField, Box } from '@mui/material';
 import BackToTopButton from '../CommonItems/BackToTopButton';
 import styles from './job-style.module.css'
-import JobPreviewDialog from './JobPreviewDialog';
 import Button from '@mui/material/Button';
 
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 
 import { jobs } from './test-jobs';
 import { work_categories, work_type } from './work-categories';
+import JobsCatalog from './JobsCatalog';
 
 
 const totalJobsCount = jobs.length;
@@ -120,40 +120,8 @@ export default function JobsPage() {
                     gap={2}
                 >
                     {
-                        jobs.map(job => (
-                            <Grid item xs='auto' key={job.id} sx={{
-                                margin: {
-                                    xs: 'auto',
-                                    sm: 0,
-                                }
-                            }}>
-                                <Card sx={{ maxWidth: 320 }}>
-                                    <CardHeader
-                                        title={job.title}
-                                        subheader={job.datePosted}
-                                        avatar={
-                                            <Avatar>{job.publisher.slice(0, 1)}</Avatar>
-                                        }
-                                    />
-                                    <CardMedia
-                                        component='img'
-                                        height='200'
-                                        image='https://source.unsplash.com/random'
-                                        alt='card img'
-                                    />
-                                    <CardContent>
-                                        <Typography variant='body2' color='text.secondary'>
-                                            {job.description.slice(0, 150)}...
-                                        </Typography>
-                                    </CardContent>
-                                    <CardActions>
-                                        <JobPreviewDialog job={job} />
-                                    </CardActions>
-                                </Card>
-                            </Grid>
-                        ))
+                        jobs.map(job => (<JobsCatalog job={job} />))
                     }
-
                 </Grid>
             </Stack>
 
