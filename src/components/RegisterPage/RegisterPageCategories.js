@@ -17,7 +17,6 @@ const register_categories = [
         category_description: 'Искам да работя на свободна практика',
         category_image: freelancer_image,
     },
-
 ];
 
 const registerUrlMap = {

@@ -40,6 +40,7 @@ function App() {
     useEffect(() => {
         Aos.init();
         Aos.refresh();
+        window.scrollTo(0, 0);
     }, []);
 
     return (

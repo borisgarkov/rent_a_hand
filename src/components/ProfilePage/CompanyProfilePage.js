@@ -12,7 +12,7 @@ import style from './profile-page-style.module.css';
 
 import { jobs } from "../JobsPage/test-jobs";
 import JobsCatalog from "../JobsPage/JobsCatalog";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 
 
 const companyInfo = `
@@ -26,6 +26,8 @@ const companyInfo = `
 `;
 
 export default function CompanyProfilePage() {
+
+
     const isBelowMediumResolution = useScreenResolution('md');
 
     return (

@@ -120,7 +120,7 @@ export default function JobsPage() {
                     gap={2}
                 >
                     {
-                        jobs.map(job => (<JobsCatalog job={job} />))
+                        jobs.map(job => (<JobsCatalog key={job.id} job={job} />))
                     }
                 </Grid>
             </Stack>

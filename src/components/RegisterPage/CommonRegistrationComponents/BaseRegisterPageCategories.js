@@ -16,10 +16,7 @@ export default function RegisterPageCategories({
     const [selectedCategoryValue, setSelectedCategoryValue] = useState(register_categories[0].category_description);
 
     const handleChange = (event) => {
-        console.log(event.currentTarget.innerText)
         setSelectedCategoryValue(event.currentTarget.innerText);
-        console.log(selectedCategoryValue);
-
     };
 
     return (
@@ -55,6 +52,7 @@ export default function RegisterPageCategories({
                     variant='contained'
                     sx={{ maxWidth: 400 }}
                     onClick={() => {
+                        console.log(registerUrlMap[selectedCategoryValue].trim());
                         navigate(registerUrlMap[selectedCategoryValue])
                     }}
                 >
