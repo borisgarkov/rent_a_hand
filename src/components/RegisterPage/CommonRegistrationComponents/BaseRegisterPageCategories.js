@@ -1,23 +1,14 @@
 import { Button, Stack, Typography } from "@mui/material";
-
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
 import RegisterCard from "../RegisterCard";
 
 
 export default function RegisterPageCategories({
     register_categories,
-    registerUrlMap
+    registerUrlMap,
+    selectedCategoryValue,
+    handleChange,
+    navigate
 }) {
-
-    const navigate = useNavigate();
-
-    const [selectedCategoryValue, setSelectedCategoryValue] = useState(register_categories[0].category_description);
-
-    const handleChange = (event) => {
-        setSelectedCategoryValue(event.currentTarget.innerText);
-    };
 
     return (
         <>
@@ -52,7 +43,6 @@ export default function RegisterPageCategories({
                     variant='contained'
                     sx={{ maxWidth: 400 }}
                     onClick={() => {
-                        console.log(registerUrlMap[selectedCategoryValue].trim());
                         navigate(registerUrlMap[selectedCategoryValue])
                     }}
                 >

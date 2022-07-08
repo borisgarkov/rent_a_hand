@@ -2,6 +2,8 @@ import freelancer_image from '../../images/working_woman_standing.jpeg';
 import jobs_image from '../../images/business_woman.jpeg';
 
 import BaseRegisterPageCategories from '../CommonRegistrationComponents/BaseRegisterPageCategories';
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 
 const register_categories = [
@@ -21,7 +23,21 @@ const registerUrlMap = {
 }
 
 export default function ProjectRegistrationCategories() {
+    const [selectedCategoryValue, setSelectedCategoryValue] = useState(register_categories[0].category_description);
+
+    const handleChange = (event) => {
+        setSelectedCategoryValue(event.currentTarget.innerText);
+    };
+
+    const navigate = useNavigate();
+
     return (
-        <BaseRegisterPageCategories register_categories={register_categories} registerUrlMap={registerUrlMap} />
+        <BaseRegisterPageCategories
+            register_categories={register_categories}
+            registerUrlMap={registerUrlMap}
+            selectedCategoryValue={selectedCategoryValue}
+            handleChange={handleChange}
+            navigate={navigate}
+        />
     )
 };
