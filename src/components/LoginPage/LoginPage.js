@@ -5,19 +5,7 @@ import { useNavigate } from "react-router-dom";
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 
 import image from '../images/working_woman.jpeg';
-
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Всички права запазени © '}
-            <Link color="inherit" href="">
-                Rent A Hand
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
+import Copyright from "../CommonItems/Copyright";
 
 export default function LoginPage() {
     let navigate = useNavigate();

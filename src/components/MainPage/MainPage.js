@@ -1,8 +1,9 @@
 import { Stack, Typography, Button, Paper, Tabs, Tab } from "@mui/material";
 
 import job_offers_img from '../images/main_page/main_page_job_offers.jpg';
-import projects_img from '../images/main_page/main_page_projects.jpeg';
+// import projects_img from '../images/main_page/main_page_projects.jpeg';
 import freelancer_img from '../images/main_page/main_page_freelancer.jpeg';
+import projects_img from '../images/main_page/project_photo.jpeg';
 
 import WorkIcon from '@mui/icons-material/Work';
 import AssignmentIcon from '@mui/icons-material/Assignment';

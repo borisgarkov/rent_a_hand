@@ -22,6 +22,7 @@ import RegisterProjectAsPersonForm from "./components/RegisterPage/RegisterForPr
 import RegisterProjectAsFirm from "./components/RegisterPage/RegisterForProjectComponents/RegisterProjectAsFirm";
 import UserProfilePage from "./components/ProfilePage/UserProfilePage";
 import CompanyProfilePage from "./components/ProfilePage/CompanyProfilePage";
+import Footer from "./components/CommonItems/Footer";
 
 const theme = createTheme({
     typography: {
@@ -70,6 +71,7 @@ function App() {
                 <Route path='*' element={<InvalidURL />} />
             </Routes>
 
+            <Footer />
             <BackToTopButton />
         </ThemeProvider>
     );
