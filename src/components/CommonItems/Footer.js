@@ -27,7 +27,6 @@ export default function Footer(params) {
             sx={{
                 py: 3,
                 px: 2,
-                mt: 'auto',
                 backgroundColor: (theme) =>
                     theme.palette.mode === 'light'
                         ? theme.palette.grey[200]
@@ -37,7 +36,7 @@ export default function Footer(params) {
             <Stack sx={{
                 flexDirection: 'row',
                 gap: 2,
-                margin: '0 auto 16px'
+                margin: '0 auto'
             }}>
                 <Typography variant="body1">
                     Социални мрежи

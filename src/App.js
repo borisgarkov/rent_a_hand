@@ -7,7 +7,7 @@ import PricingList from './components/PricingPlansPage/PricingList';
 import MainPage from "./components/MainPage/MainPage";
 import RegisterPageCategories from "./components/RegisterPage/RegisterPageCategories";
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import LoginPage from "./components/LoginPage/LoginPage";
 import BackToTopButton from "./components/CommonItems/BackToTopButton";
 import InvalidURL from "./components/CommonItems/InvalidURL";
@@ -37,6 +37,8 @@ const theme = createTheme({
 
 
 function App() {
+
+    const location = useLocation().pathname;
 
     useEffect(() => {
         Aos.init();
@@ -71,7 +73,12 @@ function App() {
                 <Route path='*' element={<InvalidURL />} />
             </Routes>
 
-            <Footer />
+            {
+                location.includes('register') ?
+                    null :
+                    <Footer />
+            }
+
             <BackToTopButton />
         </ThemeProvider>
     );
