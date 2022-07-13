@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 
 import styles from './main-page.module.css'
 import { useState } from "react";
+import CustomerFeedback from "./CustomerFeedback";
 
 const tabs_css_style = {
     padding: {
@@ -196,6 +197,7 @@ export default function MainPage() {
                     tabs_data[tab]
                 }
             </Paper>
+            <CustomerFeedback />
         </>
     )
 }
