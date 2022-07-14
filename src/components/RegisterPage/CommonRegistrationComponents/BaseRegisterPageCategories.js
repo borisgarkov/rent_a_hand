@@ -1,13 +1,11 @@
-import { Button, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import RegisterCard from "../RegisterCard";
 
 
 export default function RegisterPageCategories({
     register_categories,
     registerUrlMap,
-    selectedCategoryValue,
-    handleChange,
-    navigate
 }) {
 
     return (
@@ -23,31 +21,22 @@ export default function RegisterPageCategories({
                 </Stack>
 
                 <Stack sx={{
-                    flexDirection: { xs: 'column', lg: 'row' },
-                    gap: { xs: 2, lg: 10 },
+                    flexDirection: { xs: 'column', md: 'row' },
+                    gap: { xs: 2, lg: 5 },
                     justifyContent: 'center',
                 }}>
                     {
                         register_categories.map(x => {
-                            return <RegisterCard
+                            return <Link
                                 key={x.category_description}
-                                selectedCategoryValue={selectedCategoryValue}
-                                handleChange={handleChange}
-                                category_image={x.category_image}
-                                category_description={x.category_description}
-                            />
+                                to={registerUrlMap[x.category_description]}
+                            ><RegisterCard
+                                    category_image={x.category_image}
+                                    category_description={x.category_description}
+                                /></Link>
                         })
                     }
                 </Stack>
-                <Button
-                    variant='contained'
-                    sx={{ maxWidth: 400 }}
-                    onClick={() => {
-                        navigate(registerUrlMap[selectedCategoryValue])
-                    }}
-                >
-                    Регистрация в "{selectedCategoryValue}"
-                </Button>
             </Stack>
         </>
     )

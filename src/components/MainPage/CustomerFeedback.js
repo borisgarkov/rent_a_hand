@@ -1,8 +1,8 @@
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { Avatar, Card, CardContent, CardHeader, Collapse, Container, IconButton, Rating, Slide, Typography } from '@mui/material';
+import { Avatar, Card, CardContent, CardHeader, Container, IconButton, Rating, Typography } from '@mui/material';
 import { useState } from 'react';
-import { TransitionGroup } from 'react-transition-group';
+
 
 const reviews = [
     {
@@ -10,16 +10,6 @@ const reviews = [
         job: 'ФИТНЕС ИНСТРУКТОР',
         text: `Страхотна и модерна платформа, чрез която успявам 
         да достигна до хора, които искат да променят начина си на живот.`
-    },
-    {
-        name: 'Ненко',
-        job: 'ФИТНЕС ИНСТРУКТОР',
-        text: `Страkuglgluiglugliuguligluiiulg`
-    },
-    {
-        name: 'nikoleta',
-        job: 'ФИТНЕС ИНСТРУКТОР',
-        text: `ala bala`
     },
 ]
 
@@ -78,6 +68,7 @@ export default function CustomerFeedback() {
                     width: { xs: 190, md: 500 },
                     height: { md: 190 },
                     overflowWrap: 'break-word',
+                    boxShadow: '10px 10px 10px #666666'
                 }}>
                     <CardHeader
                         title={currentReview.name}
@@ -87,6 +78,7 @@ export default function CustomerFeedback() {
                     <CardContent sx={{
 
                     }}>
+
                         {currentReview.text}
                     </CardContent>
                 </Card>

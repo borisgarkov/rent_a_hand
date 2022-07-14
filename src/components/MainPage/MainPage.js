@@ -1,4 +1,6 @@
-import { Stack, Typography, Button, Paper, Tabs, Tab } from "@mui/material";
+import { Stack, Typography, Button, Paper, Tabs, Tab, Box } from "@mui/material";
+
+import LinearProgress from '@mui/material/LinearProgress';
 
 import job_offers_img from '../images/main_page/main_page_job_offers.jpg';
 // import projects_img from '../images/main_page/main_page_projects.jpeg';
@@ -13,7 +15,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './main-page.module.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CustomerFeedback from "./CustomerFeedback";
 
 const tabs_css_style = {
@@ -125,6 +127,14 @@ const FreelancerTabInfo = () => {
 
 export default function MainPage() {
 
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 0);
+    }, []);
+
     const [tab, setTab] = useState(0);
     const [backgroundImg, setBackgroundImg] = useState(job_offers_img);
 
@@ -165,39 +175,51 @@ export default function MainPage() {
 
     return (
         <>
-
-            <Stack>
-                <img className={styles['image']} loading='lazy' src={backgroundImg} alt='job offers img' />
-            </Stack>
-            <Paper sx={{ width: { xs: '100%', md: 576 }, position: { xs: 'static', md: 'absolute' }, top: { md: 200 }, left: { md: 150 } }}>
-                <Tabs
-                    value={tab}
-                    centered
-                    variant='fullWidth'
-                    sx={{
-                        marginBottom: 5
-                    }}
-                    onChange={tabsChangeHandler}
-                >
-                    {
-                        tabs_info.map(x => (
-                            <Tab
-                                key={x.label}
-                                wrapped
-                                label={x.label}
-                                icon={x.icon}
-                                iconPosition='top'
-                                value={x.value}
-                                sx={tabs_css_style}
-                            />
-                        ))
-                    }
-                </Tabs>
-                {
-                    tabs_data[tab]
-                }
-            </Paper>
-            <CustomerFeedback />
+            {
+                loading ?
+                    <Box sx={{ width: '100%', height: '100vh' }}>
+                        <LinearProgress />
+                    </Box> :
+                    <>
+                        <Stack>
+                            <img className={styles['image']} loading='lazy' src={backgroundImg} alt='job offers img' />
+                        </Stack>
+                        <Paper sx={{
+                            width: { xs: '100%', md: 576 },
+                            position: { xs: 'static', md: 'absolute' },
+                            top: { md: 200 },
+                            left: { md: 150 }
+                        }}>
+                            <Tabs
+                                value={tab}
+                                centered
+                                variant='fullWidth'
+                                sx={{
+                                    marginBottom: 5
+                                }}
+                                onChange={tabsChangeHandler}
+                            >
+                                {
+                                    tabs_info.map(x => (
+                                        <Tab
+                                            key={x.label}
+                                            wrapped
+                                            label={x.label}
+                                            icon={x.icon}
+                                            iconPosition='top'
+                                            value={x.value}
+                                            sx={tabs_css_style}
+                                        />
+                                    ))
+                                }
+                            </Tabs>
+                            {
+                                tabs_data[tab]
+                            }
+                        </Paper>
+                        <CustomerFeedback />
+                    </>
+            }
         </>
     )
 }
