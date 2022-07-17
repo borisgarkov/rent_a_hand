@@ -1,5 +1,5 @@
-import freelancer_image from '../../images/working_woman_standing.jpeg';
-import jobs_image from '../../images/business_woman.jpeg';
+import freelancer_image from '../../images/register_fizichesko_lice.jpeg';
+import jobs_image from '../../images/register_juridichesko_lice.jpeg';
 
 import BaseRegisterPageCategories from '../CommonRegistrationComponents/BaseRegisterPageCategories';
 import { useState } from 'react';

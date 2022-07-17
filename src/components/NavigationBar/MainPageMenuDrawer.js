@@ -15,27 +15,45 @@ import { Link, useNavigate } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import logo from '../images/Rent A Hand_D1.png';
 
 import useScreenResolution from '../hooks/useScreenResolution';
+
 
 
 
 const anchor = 'right';
 
 const UserSection = ({ isUserLoggedIn, toggleDrawer, navigate }) => {
+
+    const isMobile = useScreenResolution();
+    const iconButton = isMobile ?
+        <IconButton onClick={toggleDrawer(anchor, true)} size='large'>
+            <PersonIcon />
+        </IconButton> :
+        <Button variant='text' sx={{ color: '#666666' }} onClick={toggleDrawer(anchor, true)}>
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                fontSize: '12px',
+                margin: '0 20px',
+            }} >
+                <PersonIcon />
+                Профил
+            </Box>
+        </Button >
+
+
     return (
         <Box sx={{
             marginLeft: 'auto'
         }}>
             {
                 isUserLoggedIn ?
-                    <IconButton onClick={toggleDrawer(anchor, true)} size='large'>
-                        <PersonIcon />
-                    </IconButton> :
-                    <Button variant='outlined' onClick={() => navigate('/login')}>Вход</Button>
+                    iconButton :
+                    < Button variant='outlined' onClick={() => navigate('/login')}>Вход</Button>
             }
-        </Box>
+        </Box >
     )
 }
 

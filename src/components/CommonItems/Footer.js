@@ -20,17 +20,14 @@ const socialMediaIcons = [
     },
 ]
 
-export default function Footer(params) {
+export default function Footer() {
     return (
         <Stack
             component="footer"
             sx={{
                 py: 3,
                 px: 2,
-                backgroundColor: (theme) =>
-                    theme.palette.mode === 'light'
-                        ? theme.palette.grey[200]
-                        : theme.palette.grey[800],
+                backgroundColor: '#eeeeee',
                 alignItems: 'center',
             }}>
             <Stack sx={{

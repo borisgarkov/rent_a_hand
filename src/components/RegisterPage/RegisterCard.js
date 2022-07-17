@@ -7,12 +7,17 @@ export default function RegisterCard({
     return (
         <>
             <Card
-                sx={{ width: { xs: '100%', lg: 350 } }}
+                sx={{ width: { xs: '100%', lg: 350 }, height: { md: 260 } }}
             >
                 <CardActionArea>
                     <CardMedia component='img' height='180' image={category_image} alt='category image' />
                     <CardContent>
-                        <Typography>Регистрация в "{category_description}"</Typography>
+                        <Typography sx={{
+                            textAlign: 'center',
+                            zIndex: 2,
+                        }}>
+                            {category_description}
+                        </Typography>
                     </CardContent>
                 </CardActionArea>
             </Card>

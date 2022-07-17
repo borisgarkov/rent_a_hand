@@ -17,6 +17,8 @@ import { useNavigate } from 'react-router-dom';
 import styles from './main-page.module.css'
 import { useEffect, useState } from "react";
 import CustomerFeedback from "./CustomerFeedback";
+import SearchSection from "./SearchSection";
+import { Container } from "@mui/system";
 
 const tabs_css_style = {
     padding: {
@@ -35,7 +37,6 @@ const JobsTabInfo = () => {
             <Stack sx={{
                 gap: 2,
                 justifyContent: 'center',
-                marginBottom: 5,
             }}>
                 <WorkIcon fontSize='large' sx={{ alignSelf: 'center', color: 'primary.main' }} />
                 <Typography variant='h5' sx={{ ...tabs_css_style }}>
@@ -52,8 +53,9 @@ const JobsTabInfo = () => {
 
             <Stack sx={{
                 flexDirection: { md: 'row' },
+                gap: 1,
                 justifyContent: 'space-evenly',
-                marginBottom: 5,
+                paddingBottom: 3
             }}>
                 <Button variant='contained' onClick={() => navigate('/pricing')}>Корпоративни Планове</Button>
                 <Button variant='outlined' onClick={() => navigate('/register-as-firm')}>Качи обява за работа</Button>
@@ -65,12 +67,13 @@ const JobsTabInfo = () => {
 const ProjectsTabInfo = () => {
     const navigate = useNavigate();
 
+    const buttonWidth = '38%';
+
     return (
         <>
             <Stack sx={{
                 gap: 2,
                 justifyContent: 'center',
-                marginBottom: 5,
             }}>
                 <AssignmentIcon fontSize='large' sx={{ alignSelf: 'center', color: 'primary.main' }} />
                 <Typography variant='h5' sx={{ ...tabs_css_style }}>
@@ -81,12 +84,13 @@ const ProjectsTabInfo = () => {
                 </Typography>
             </Stack>
             <Stack sx={{
-                flexDirection: 'row',
+                flexDirection: { md: 'row' },
+                gap: 1,
                 justifyContent: 'space-evenly',
-                marginBottom: 5,
+                paddingBottom: 3
             }}>
-                <Button variant='contained' onClick={() => navigate('/register-project')}>Регистрация</Button>
-                <Button variant='outlined' onClick={() => navigate('/jobs')}>Проекти</Button>
+                <Button variant='contained' onClick={() => navigate('/register-project')} sx={{ width: { md: buttonWidth } }}>Регистрация</Button>
+                <Button variant='outlined' onClick={() => navigate('/jobs')} sx={{ width: { md: buttonWidth } }}>Проекти</Button>
             </Stack>
         </>
     )
@@ -100,7 +104,6 @@ const FreelancerTabInfo = () => {
             <Stack sx={{
                 gap: 2,
                 justifyContent: 'center',
-                marginBottom: 5,
             }}>
                 <StarBorderIcon fontSize='large' sx={{ alignSelf: 'center', color: 'primary.main' }} />
                 <Typography variant='h5' sx={{ ...tabs_css_style }}>
@@ -115,9 +118,9 @@ const FreelancerTabInfo = () => {
                 </Typography>
             </Stack>
             <Stack sx={{
-                flexDirection: 'row',
-                justifyContent: 'space-evenly',
-                marginBottom: 5,
+                width: { md: '85%' },
+                margin: '0 auto',
+                paddingBottom: 3
             }}>
                 <Button variant='contained' onClick={() => navigate('/register-as-freelancer')}>Регистрация</Button>
             </Stack>
@@ -132,7 +135,7 @@ export default function MainPage() {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
-        }, 0);
+        }, 1500);
     }, []);
 
     const [tab, setTab] = useState(0);
@@ -181,42 +184,46 @@ export default function MainPage() {
                         <LinearProgress />
                     </Box> :
                     <>
-                        <Stack>
-                            <img className={styles['image']} loading='lazy' src={backgroundImg} alt='job offers img' />
-                        </Stack>
-                        <Paper sx={{
-                            width: { xs: '100%', md: 576 },
-                            position: { xs: 'static', md: 'absolute' },
-                            top: { md: 200 },
-                            left: { md: 150 }
-                        }}>
-                            <Tabs
-                                value={tab}
-                                centered
-                                variant='fullWidth'
-                                sx={{
-                                    marginBottom: 5
-                                }}
-                                onChange={tabsChangeHandler}
-                            >
+                        <Box sx={{ position: 'relative' }}>
+                            <SearchSection />
+                            <Stack>
+                                <img className={styles['image']} loading='lazy' src={backgroundImg} alt='job offers img' />
+                            </Stack>
+                            <Paper sx={{
+                                width: { xs: '100%', lg: 576 },
+                                position: { xs: 'static', lg: 'absolute' },
+                                top: { md: '25%' },
+                                left: { md: '8%' },
+                            }}>
+                                <Tabs
+                                    value={tab}
+                                    centered
+                                    variant='fullWidth'
+                                    sx={{
+                                        marginBottom: 5
+                                    }}
+                                    onChange={tabsChangeHandler}
+                                >
+                                    {
+                                        tabs_info.map(x => (
+                                            <Tab
+                                                key={x.label}
+                                                wrapped
+                                                label={x.label}
+                                                icon={x.icon}
+                                                iconPosition='top'
+                                                value={x.value}
+                                                sx={tabs_css_style}
+                                            />
+                                        ))
+                                    }
+                                </Tabs>
                                 {
-                                    tabs_info.map(x => (
-                                        <Tab
-                                            key={x.label}
-                                            wrapped
-                                            label={x.label}
-                                            icon={x.icon}
-                                            iconPosition='top'
-                                            value={x.value}
-                                            sx={tabs_css_style}
-                                        />
-                                    ))
+                                    tabs_data[tab]
                                 }
-                            </Tabs>
-                            {
-                                tabs_data[tab]
-                            }
-                        </Paper>
+                            </Paper>
+
+                        </Box>
                         <CustomerFeedback />
                     </>
             }

@@ -18,7 +18,9 @@ export default function RegisterPageCategories({
                 <Stack sx={{ flexDirection: { xs: 'column', md: 'row' } }} gap={1}>
                     <Typography variant='h4'>Присъедини се към</Typography>
                     <Typography variant='h4' sx={{ color: 'primary.main' }}>Rent A Hand</Typography>
+                    <Typography variant='h4'>...</Typography>
                 </Stack>
+                <Typography variant="h5">Регистрация</Typography>
 
                 <Stack sx={{
                     flexDirection: { xs: 'column', md: 'row' },

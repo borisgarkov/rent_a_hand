@@ -14,6 +14,8 @@ export default function BaseRegistrationForm({
                 fullWidth
                 autoComplete={field.autoComplete}
                 variant="outlined"
+                onInvalid={(e) => e.target.setCustomValidity('Моля, попълнете полето!')}
+                onInput={(e) => e.target.setCustomValidity('')}
             />
         </Grid>
     )

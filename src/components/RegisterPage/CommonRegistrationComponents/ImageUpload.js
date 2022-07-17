@@ -1,10 +1,8 @@
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 
-import DoneIcon from '@mui/icons-material/Done';
+import { Alert } from '@mui/material';
 
 export default function ImageUpload({
     uploadImageText
@@ -19,12 +17,6 @@ export default function ImageUpload({
         };
     };
 
-    const flexStyle = {
-        flexDirection: 'row',
-        gap: 5,
-        alignItems: 'center',
-    };
-
     return (
         <Grid item xs={12}>
             <input
@@ -33,22 +25,21 @@ export default function ImageUpload({
                 id="upload-profile-image"
                 type="file"
                 onChange={getImageUploaded}
+                name='image'
+                required
+                onInvalid={() => alert('Моля, прикачете снимка!')}
             />
-            <Stack sx={{ ...flexStyle, flexDirection: { xs: 'column', md: 'row' } }}>
-                <label htmlFor="upload-profile-image" style={{ width: '100%' }}>
-                    <Button variant="outlined" component="span" fullWidth>
-                        {uploadImageText}
-                    </Button>
-                </label>
-                {
-                    isImageUploaded ?
-                        <Stack sx={{ ...flexStyle, gap: 2 }}>
-                            <DoneIcon sx={{ color: 'green' }} />
-                            <Typography>Успешно прикачена снимка</Typography>
-                        </Stack> :
-                        null
-                }
-            </Stack>
+            {
+                isImageUploaded ?
+                    <Alert severity="success">Успешно прикачена снимка</Alert> :
+                    null
+            }
+            <label htmlFor="upload-profile-image" style={{ width: '100%' }}>
+                <Button variant="outlined" component="span" fullWidth>
+                    {uploadImageText}
+                </Button>
+            </label>
+
         </Grid>
     )
 }

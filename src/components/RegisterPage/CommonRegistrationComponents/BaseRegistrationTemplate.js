@@ -1,8 +1,10 @@
-import { Button, Grid, Paper, Step, StepContent, StepLabel, Stepper, Typography } from "@mui/material";
+import { Button, FormControl, Grid, Paper, Step, StepContent, StepLabel, Stepper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
 
 export default function BaseRegistrationTemplate({
+    formData,
+    handleFormDataSubmit,
     backgroundPicture,
     registrationTitle,
     steps,
@@ -10,9 +12,28 @@ export default function BaseRegistrationTemplate({
 
     const [activeStep, setActiveStep] = useState(0);
 
-    const handleNext = () => {
+    const handleNext = (event) => {
+        event.preventDefault();
+
+        const data = new FormData(event.target);
+
+        for (const pair of data.entries()) {
+            let key = pair[0];
+            let value = pair[1];
+
+            if (formData[key] !== null) {
+                continue;
+            }
+
+            formData[key] = value;
+        }
+
+        handleFormDataSubmit(formData);
+
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
+
+    console.log(formData);
 
     const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
@@ -21,7 +42,8 @@ export default function BaseRegistrationTemplate({
     return (
         <Grid container sx={{
             height: '100vh',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            margin: '8px auto',
         }} >
             <Grid item xs={12} sm={8} component={Paper} sx={{ padding: { xs: 2, md: 5 } }}>
                 <Typography variant='h5' sx={{ margin: '10px', fontWeight: 'bold' }}>{registrationTitle}</Typography>
@@ -37,27 +59,29 @@ export default function BaseRegistrationTemplate({
                             >
                                 {step.label}
                             </StepLabel>
-                            <StepContent>
-                                {step.content}
-                                <Box sx={{ mb: 2 }}>
-                                    <div>
-                                        <Button
-                                            variant="contained"
-                                            onClick={handleNext}
-                                            sx={{ mt: 1, mr: 1 }}
-                                        >
-                                            {index === steps.length - 1 ? 'Завърши регистрация' : 'Продължи'}
-                                        </Button>
-                                        <Button
-                                            disabled={index === 0}
-                                            onClick={handleBack}
-                                            sx={{ mt: 1, mr: 1 }}
-                                        >
-                                            Назад
-                                        </Button>
-                                    </div>
-                                </Box>
-                            </StepContent>
+                            <form onSubmit={handleNext}>
+                                <StepContent>
+                                    {step.content}
+                                    <Box sx={{ mb: 2 }}>
+                                        <div>
+                                            <Button
+                                                variant="contained"
+                                                sx={{ mt: 1, mr: 1 }}
+                                                type='submit'
+                                            >
+                                                {index === steps.length - 1 ? 'Завърши регистрация' : 'Продължи'}
+                                            </Button>
+                                            <Button
+                                                disabled={index === 0}
+                                                onClick={handleBack}
+                                                sx={{ mt: 1, mr: 1 }}
+                                            >
+                                                Назад
+                                            </Button>
+                                        </div>
+                                    </Box>
+                                </StepContent>
+                            </form>
                         </Step>
                     ))}
                 </Stepper>

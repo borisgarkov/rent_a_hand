@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Button, ButtonGroup, Stack } from "@mui/material";
+import { AppBar, Toolbar, Button, ButtonGroup, Stack, Divider } from "@mui/material";
 import { Box } from "@mui/system";
 
 import HomeIcon from '@mui/icons-material/Home';
@@ -113,14 +113,17 @@ export default function Navigation() {
 
     return (
         <>
-            <AppBar sx={{ backgroundColor: 'white' }}>
+            <AppBar elevation={0} sx={{ backgroundColor: 'white' }}>
                 <Toolbar sx={{
                     width: { xs: '100%' },
+                    maxWidth: { md: '87%' },
                     margin: '0 auto',
-                    justifyContent: 'space-between'
+                    justifyContent: 'space-between',
                 }}>
 
-                    <img src={logo} height={isMobile ? '20' : '30'} alt="logo img" onClick={() => navigate('/')} style={{ cursor: 'pointer' }} />
+                    <img src={logo} height={isMobile ? '20' : '30'} alt="logo img" onClick={() => navigate('/')} style={{
+                        cursor: 'pointer',
+                    }} />
 
                     {
                         isMobile ?
@@ -138,6 +141,7 @@ export default function Navigation() {
                     }
 
                 </Toolbar>
+                <div className={styles['separator']}>A HAND</div>
             </AppBar>
             <Toolbar id='navbar' />
         </>

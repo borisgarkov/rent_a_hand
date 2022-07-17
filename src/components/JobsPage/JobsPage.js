@@ -35,7 +35,12 @@ export default function JobsPage() {
                 },
             }}>
                 <Stack sx={{
-                    maxWidth: 400,
+                    width: {
+                        xs: '90%',
+                    },
+                    maxWidth: {
+                        sm: '400px',
+                    },
                     alignSelf: 'flex-start',
                     flexGrow: 1,
                     position: {
@@ -43,14 +48,8 @@ export default function JobsPage() {
                         sm: 'sticky',
                     },
                     margin: {
-                        xs: 'auto',
+                        xs: '15px auto',
                         sm: 0,
-                    },
-                    marginTop: {
-                        xs: 5,
-                    },
-                    marginBottom: {
-                        xs: 5,
                     },
                     top: 80
                 }}>

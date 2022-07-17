@@ -12,7 +12,7 @@ export default function JobsCatalog({
     return (
         <Grid item xs='auto' key={job.id} sx={{
             margin: {
-                sx: 'auto',
+                xs: 'auto',
                 sm: 0,
             }
         }}>
