@@ -18,15 +18,13 @@ import styles from './main-page.module.css'
 import { useEffect, useState } from "react";
 import CustomerFeedback from "./CustomerFeedback";
 import SearchSection from "./SearchSection";
-import { Container } from "@mui/system";
+import ExploreTheMarketPlace from "./ExploreTheMarketPlace";
 
 const tabs_css_style = {
     padding: {
         xs: '0 10px',
         md: '0 50px',
     },
-    // fontWeight: 'bold',
-    // textAlign: 'justify',
 };
 
 const JobsTabInfo = () => {
@@ -185,7 +183,7 @@ export default function MainPage() {
                     </Box> :
                     <>
                         <Box sx={{ position: 'relative' }}>
-                            <SearchSection />
+
                             <Stack>
                                 <img className={styles['image']} loading='lazy' src={backgroundImg} alt='job offers img' />
                             </Stack>
@@ -224,6 +222,7 @@ export default function MainPage() {
                             </Paper>
 
                         </Box>
+                        <ExploreTheMarketPlace />
                         <CustomerFeedback />
                     </>
             }
