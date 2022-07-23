@@ -15,7 +15,7 @@ import { useMemo, useState } from 'react';
 
 
 const totalJobsCount = jobs.length;
-const totalJobsPerPage = 2;
+const totalJobsPerPage = 10;
 const totalPaginationPages = Math.ceil(totalJobsCount / totalJobsPerPage);
 
 export default function JobsPage() {
