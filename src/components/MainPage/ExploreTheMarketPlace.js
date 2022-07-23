@@ -86,6 +86,7 @@ export default function ExploreTheMarketPlace(params) {
                     justifyContent: 'center',
                     margin: '50px auto 100px',
                     maxWidth: 1100,
+                    rowGap: '34px'
                 }}
             >
                 {
