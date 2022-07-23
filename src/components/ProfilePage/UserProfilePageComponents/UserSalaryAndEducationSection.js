@@ -6,7 +6,10 @@ import { EditSectionButton } from "./EditSectionButton";
 
 import { userInfoIconHeadingCssStyle } from "./commonProfileCssStyles";
 
-export const UserSalaryAndEducationSection = () => {
+export const UserSalaryAndEducationSection = ({
+    updateUserInfo,
+    currentUser
+}) => {
     return (
         <>
             <Stack sx={{
@@ -22,7 +25,7 @@ export const UserSalaryAndEducationSection = () => {
                         Заплащане
                     </Typography>
                     <Typography variant='body1' >
-                        10лв / час
+                        {currentUser.wage} лв / час
                     </Typography>
                 </Stack>
                 <EditSectionButton />
@@ -40,10 +43,10 @@ export const UserSalaryAndEducationSection = () => {
                         Образование
                     </Typography>
                     <Typography variant='body2'>
-                        УНСС
+                        {currentUser.university1}
                     </Typography>
                     <Typography variant='body2'>
-                        Oxford
+                        {currentUser.university2}
                     </Typography>
                 </Stack>
                 <EditSectionButton />

@@ -9,7 +9,17 @@ import { SaveUserToFavouriteSection } from "./UserProfilePageComponents/SaveUser
 
 import BackToTopButton from '../CommonItems/BackToTopButton';
 
+import userData from './UserProfilePageComponents/testUser';
+import { useState } from "react";
+
 export default function UserProfilePage() {
+
+    const [currentUser, setCurrentUser] = useState(userData);
+
+    const updateUserInfo = (info) => {
+        setCurrentUser(info);
+    };
+
     return (
         <>
             <ProfileHeading />
@@ -28,7 +38,7 @@ export default function UserProfilePage() {
                     padding: 1,
                     flexGrow: 1,
                 }}>
-                    <UserSalaryAndEducationSection />
+                    <UserSalaryAndEducationSection updateUserInfo={updateUserInfo} currentUser={currentUser} />
                 </Stack>
 
                 <Divider orientation="vertical" flexItem={true} />

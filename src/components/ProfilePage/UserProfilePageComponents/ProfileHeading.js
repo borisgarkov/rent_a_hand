@@ -64,7 +64,13 @@ const NameCityConnectHeadingSection = () => {
 
 export const ProfileHeading = () => {
     return (
-        <Card sx={{ marginTop: { xs: 1, sm: '15px' }, marginBottom: 2, marginLeft: 'auto', marginRight: 'auto', maxWidth: 950 }}>
+        <Card sx={{
+            marginTop: { xs: 1, sm: '15px' },
+            marginBottom: 2,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            maxWidth: 950
+        }}>
             <Stack sx={{
                 flexDirection: {
                     xs: 'column',
