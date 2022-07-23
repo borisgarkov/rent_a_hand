@@ -54,7 +54,7 @@ export default function JobsPage() {
             }}>
                 <Stack sx={{
                     width: {
-                        xs: '90%',
+                        xs: '100%',
                     },
                     maxWidth: {
                         sm: '400px',
