@@ -3,8 +3,19 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import { Avatar, Box, Button, CardActionArea, Divider, IconButton, Stack, Typography } from '@mui/material';
-import JobPreviewDialog from './JobPreviewDialog';
 import { useState } from 'react';
+
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
+
+import CloseIcon from '@mui/icons-material/Close';
+import { forwardRef } from 'react';
+
+import { useNavigate } from "react-router-dom";
 
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
@@ -15,12 +26,16 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 
 import logo from '../images/Rent A Hand_D1.png';
 import style from '../ProfilePage/profile-page-style.module.css';
-import { fontSize } from '@mui/system';
+
+const Transition = forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 
 export default function JobsCatalog({
     job
 }) {
+    let navigate = useNavigate();
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -73,7 +88,7 @@ export default function JobsCatalog({
                     width: '70%',
                 }}>
                     <Divider orientation='vertical' flexItem />
-                    <Box>
+                    <CardActionArea onClick={handleClickOpen}>
                         <CardHeader
                             title={job.title}
                             subheader={job.datePosted}
@@ -93,12 +108,49 @@ export default function JobsCatalog({
                                 <Typography variant='body2'>{job.jobCategory}</Typography>
                             </Stack>
                         </CardContent>
-                    </Box>
+                    </CardActionArea>
                     <IconButton sx={{ marginLeft: 'auto' }}>
                         <BookmarkAddedIcon sx={{ color: '#f37327' }} />
                     </IconButton>
                 </Stack>
                 {/* <JobPreviewDialog job={job} handleClose={handleClose} open={open} /> */}
+                <Dialog
+                    open={open}
+                    TransitionComponent={Transition}
+                    keepMounted
+                    onClose={handleClose}
+                    aria-describedby="alert-dialog-slide-description"
+                >
+                    <DialogTitle>
+                        <Box
+                            marginBottom={2}
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'baseline',
+                                columnGap: 2,
+                            }}
+                        >
+                            <Avatar>{job.publisher.slice(0, 1)}</Avatar>
+                            <Typography id="transition-modal-title" variant="h6" component="h2" mb={2}>
+                                {job.publisher}
+                            </Typography>
+                            <IconButton onClick={handleClose} sx={{ alignSelf: 'flex-start', marginLeft: 'auto' }} >
+                                <CloseIcon />
+                            </IconButton>
+                        </Box>
+                        {job.title}
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-slide-description">
+                            {job.description}
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => (navigate('/job-description'))}>
+                            Прегледай обява
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </Card >
         </Grid >
     )

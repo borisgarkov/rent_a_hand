@@ -130,11 +130,11 @@ export default function MainPage() {
 
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 1500);
-    }, []);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setLoading(false);
+    //     }, 1500);
+    // }, []);
 
     const [tab, setTab] = useState(0);
     const [backgroundImg, setBackgroundImg] = useState(job_offers_img);
@@ -177,54 +177,54 @@ export default function MainPage() {
     return (
         <>
             {
-                loading ?
-                    <Box sx={{ width: '100%', height: '100vh' }}>
-                        <LinearProgress />
-                    </Box> :
-                    <>
-                        <Box sx={{ position: 'relative' }}>
+                // loading ?
+                //     <Box sx={{ width: '100%', height: '100vh' }}>
+                //         <LinearProgress />
+                //     </Box> :
+                <>
+                    <Box sx={{ position: 'relative' }}>
 
-                            <Stack>
-                                <img className={styles['image']} loading='lazy' src={backgroundImg} alt='job offers img' />
-                            </Stack>
-                            <Paper sx={{
-                                width: { xs: '100%', lg: 576 },
-                                position: { xs: 'static', lg: 'absolute' },
-                                top: { md: '25%' },
-                                left: { md: '8%' },
-                            }}>
-                                <Tabs
-                                    value={tab}
-                                    centered
-                                    variant='fullWidth'
-                                    sx={{
-                                        marginBottom: 5
-                                    }}
-                                    onChange={tabsChangeHandler}
-                                >
-                                    {
-                                        tabs_info.map(x => (
-                                            <Tab
-                                                key={x.label}
-                                                wrapped
-                                                label={x.label}
-                                                icon={x.icon}
-                                                iconPosition='top'
-                                                value={x.value}
-                                                sx={tabs_css_style}
-                                            />
-                                        ))
-                                    }
-                                </Tabs>
+                        <Stack>
+                            <img className={styles['image']} loading='lazy' src={backgroundImg} alt='job offers img' />
+                        </Stack>
+                        <Paper sx={{
+                            width: { xs: '100%', lg: 576 },
+                            position: { xs: 'static', lg: 'absolute' },
+                            top: { md: '25%' },
+                            left: { md: '8%' },
+                        }}>
+                            <Tabs
+                                value={tab}
+                                centered
+                                variant='fullWidth'
+                                sx={{
+                                    marginBottom: 5
+                                }}
+                                onChange={tabsChangeHandler}
+                            >
                                 {
-                                    tabs_data[tab]
+                                    tabs_info.map(x => (
+                                        <Tab
+                                            key={x.label}
+                                            wrapped
+                                            label={x.label}
+                                            icon={x.icon}
+                                            iconPosition='top'
+                                            value={x.value}
+                                            sx={tabs_css_style}
+                                        />
+                                    ))
                                 }
-                            </Paper>
+                            </Tabs>
+                            {
+                                tabs_data[tab]
+                            }
+                        </Paper>
 
-                        </Box>
-                        <ExploreTheMarketPlace />
-                        <CustomerFeedback />
-                    </>
+                    </Box>
+                    <ExploreTheMarketPlace />
+                    <CustomerFeedback />
+                </>
             }
         </>
     )
