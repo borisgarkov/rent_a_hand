@@ -96,9 +96,9 @@ export default function JobsPage() {
                     },
                     top: 80
                 }}>
-                    <Stack sx={{ flexDirection: 'row', gap: 2, alignItems: 'center', margin: '16px 0', justifyContent: 'center' }}>
+                    <Stack sx={{ flexDirection: 'row', gap: 2, alignItems: 'center', margin: '16px 0', justifyContent: 'space-between' }}>
                         <Avatar src={avatarImage} sx={{ width: 80, height: 80 }} />
-                        <Typography variant='body1' sx={{ maxWidth: 200, flex: '1 0 200px' }}>{titleWorkType}</Typography>
+                        <Typography variant='body1' sx={{ width: '100%' }}>{titleWorkType}</Typography>
                     </Stack>
                     <Card>
                         <CardHeader subheader='Филтър' />
